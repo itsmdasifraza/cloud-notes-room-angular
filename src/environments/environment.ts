@@ -5,8 +5,16 @@
 export const environment = {
   production: false,
   backend: {
-    connection : "http",
-    ip : "192.168.43.99:3000"
+    connection : "https",
+    ip : "cloud-notes-room.herokuapp.com"
+  },
+  app : {
+    name : "Cloud Notes Room",
+  },
+  developer : {
+    name : "Md Asif Raza",
+    position : "Software Developer",
+    email : "itsmdasifraza@gmail.com"
   }
 };
 

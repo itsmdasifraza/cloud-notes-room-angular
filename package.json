@@ -1,6 +1,6 @@
 {
   "name": "cloud-notes-room-angular",
-  "version": "0.0.0",
+  "version": "v3.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

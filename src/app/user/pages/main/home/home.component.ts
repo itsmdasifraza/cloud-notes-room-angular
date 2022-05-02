@@ -4,6 +4,8 @@ import {Meta, Title} from "@angular/platform-browser";
 import { Router } from '@angular/router';
 import { AuthRegLoginService } from 'src/app/user/services/auth/auth-reg-login.service';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
+import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,11 +13,13 @@ import { ConnectService } from 'src/app/user/services/connect/connect.service';
 })
 export class HomeComponent implements OnInit {
 
-  location = window.location.href;
+  location : string = window.location.href;
+  app : { name : string } = environment.app;
+  developer : { name : string, position : string, email : string} = environment.developer;
   
   constructor(private titleService:Title, private meta: Meta, private connectService: ConnectService, private authService : AuthRegLoginService, private router : Router) {
-    this.titleService.setTitle("Social Chat Notes: Where the World Store Notes Private or Public");
-    this.meta.updateTag({ name: 'description', content: `Millions of users build, push, and maintain their notes on Social Chat Notes — the largest and most advanced Notes Sharing platform in the world. Connect to see your friends notes.` });
+    this.titleService.setTitle(`${this.app.name} | Where the World Store Notes Private or Public`);
+    this.meta.updateTag({ name: 'description', content: `Millions of users build, push, and maintain their notes on ${this.app.name} — the largest and most advanced Notes Sharing platform in the world. Connect to see your friends notes.` });
     this.meta.updateTag({ property: "og:url", content: `${this.location}` });
    }
 
@@ -25,8 +29,8 @@ export class HomeComponent implements OnInit {
 
   });
 
-  ngOnInit(): void {
-  }
+  
+  ngOnInit(): void {}
 
   error = false;
   spinner : boolean = false;

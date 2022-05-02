@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-main-header',
   templateUrl: './main-header.component.html',
@@ -49,8 +49,10 @@ export class MainHeaderComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  app : { name : string } = environment.app;  
+  
+  ngOnInit(): void {}
+
   notes(){
     this.router.navigate(['/']);
   }

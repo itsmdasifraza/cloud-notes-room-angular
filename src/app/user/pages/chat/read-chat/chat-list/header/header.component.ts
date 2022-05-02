@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -50,9 +51,10 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router, private connectService : ConnectService) { }
   @Input() username;
-  ngOnInit(): void {
+  app : { name : string } = environment.app;
+  
+  ngOnInit(): void {}
 
-  }
   logout(){
     // console.log("clicked");
     this.connectService.chatRefresh.next([]);
