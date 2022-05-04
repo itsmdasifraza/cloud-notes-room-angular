@@ -1,0 +1,79 @@
+.default-screen{
+    padding: 15px;
+    padding-top: calc(100vh / 100 * 30);
+    padding-bottom: 40px;
+     min-height: 100vh;
+     background: var(--themebg);   
+ }
+ .default-screen h1{
+     font-size: 120px;
+     font-weight: 900;
+     text-align: center;
+     margin: 0;
+     padding: 0;
+     color : white;
+ }
+ svg{
+     fill: white;
+ }
+ .my-gear{
+    /* display: inline-block; */
+    height: 100px;
+    width: 100px;
+    margin: 0;
+    padding: 0;
+    margin-left: 30px;
+    transform: translateY(20px) !important;
+    transform-origin: center center;
+    animation: spin 4s infinite linear;
+    -webkit-animation: spin 4s infinite linear;
+    -webkit-transform: translateY(20px) !important;
+    -moz-transform: translateY(20px) !important;
+    -ms-transform: translateY(20px) !important;
+    -o-transform: translateY(20px) !important;
+}
+ @-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+@media only screen and (max-width : 1199px){
+    .default-screen h1{
+        font-size: 80px;
+        font-weight: 900;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    .my-gear{
+        height: 70px;
+        width: 70px;
+        margin-left: 20px;
+    }
+}
+@media only screen and (max-width : 991px){
+    .default-screen h1{
+        font-size: 50px;
+        font-weight: 900;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    .my-gear{
+        height: 50px;
+        width: 50px;
+        margin-left: 10px;
+    }
+}
+@media only screen and (max-width:767px){  
+    .default-screen{
+        display: none;
+    }
+}

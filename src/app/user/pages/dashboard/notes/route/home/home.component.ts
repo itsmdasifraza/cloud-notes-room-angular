@@ -3,13 +3,12 @@ import { Title, Meta } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-chat-screen',
-  templateUrl: './chat-screen.component.html',
-  styleUrls: ['./chat-screen.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class ChatScreenComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
-  
   location : string = window.location.href;
   app : { name : string } = environment.app;
   
@@ -21,4 +20,5 @@ export class ChatScreenComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+
 }

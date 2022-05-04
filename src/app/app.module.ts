@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MainHeaderModule } from './user/navigator/main-header/main-header.module';
 import { FooterModule } from './user/navigator/footer/footer.module';
+import { NotesModule } from './user/pages/dashboard/notes/notes.module';
+import { SettingsModule } from './user/pages/dashboard/settings/settings.module';
+import { SharedModule } from './user/pages/dashboard/shared/shared.module';
 
 
 
@@ -25,7 +28,10 @@ import { FooterModule } from './user/navigator/footer/footer.module';
     BrowserAnimationsModule,
     MainHeaderModule,
     FooterModule,
-    HttpClientModule
+    HttpClientModule,
+    NotesModule,
+    SettingsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
