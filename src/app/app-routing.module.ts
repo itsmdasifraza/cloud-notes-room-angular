@@ -8,12 +8,12 @@ const routes: Routes = [
   { path: 'contact', canActivate: [UnauthorizedGuard],  loadChildren: () => import('./user/pages/main/contact/contact.module').then(m => m.ContactModule)},
   { path: 'about', canActivate: [UnauthorizedGuard],  loadChildren: () => import('./user/pages/main/about/about.module').then(m => m.AboutModule)},
   { path: 'policy', canActivate: [UnauthorizedGuard],  loadChildren: () => import('./user/pages/guide/policy/policy.module').then(m => m.PolicyModule)},
-  { path: 'chat', canActivate: [AuthorizedGuard] , loadChildren: () => import('./user/pages/chat/read-chat/read-chat.module').then(m => m.ReadChatModule)},
+  // { path: 'chat', canActivate: [AuthorizedGuard] , loadChildren: () => import('./user/pages/chat/read-chat/read-chat.module').then(m => m.ReadChatModule)},
 
   
-  { path: 'register', canActivate: [UnauthorizedGuard] , loadChildren: () => import('./user/auth/register/register.module').then(m => m.RegisterModule)},
-  { path: 'login', canActivate: [UnauthorizedGuard] , loadChildren: () => import('./user/auth/login/login.module').then(m => m.LoginModule)},
-  { path: 'forgot-password', canActivate: [UnauthorizedGuard] , loadChildren: () => import('./user/auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule)},
+  { path: 'register', canActivate: [UnauthorizedGuard] , loadChildren: () => import('./user/pages/authentication/register/register.module').then(m => m.RegisterModule)},
+  { path: 'login', canActivate: [UnauthorizedGuard] , loadChildren: () => import('./user/pages/authentication/login/login.module').then(m => m.LoginModule)},
+  { path: 'forgot-password', canActivate: [UnauthorizedGuard] , loadChildren: () => import('./user/pages/authentication/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule)},
   // { path: 'settingsdfrf' , canActivate: [AuthorizedGuard], loadChildren: () => import('./user/pages/user/setting/setting.module').then(m => m.SettingModule)},
   { path: 'settings' , canActivate: [AuthorizedGuard], loadChildren: () => import('./user/pages/dashboard/settings/settings.module').then(m => m.SettingsModule)},
   

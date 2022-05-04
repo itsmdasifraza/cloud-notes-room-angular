@@ -3,9 +3,9 @@ import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { AuthRegLoginService } from 'src/app/user/services/auth/auth-reg-login.service';
+import { ConnectService } from 'src/app/user/services/connect/connect.service';
 import { environment } from 'src/environments/environment';
-import { AuthRegLoginService } from '../../services/auth/auth-reg-login.service';
-import { ConnectService } from '../../services/connect/connect.service';
 
 @Component({
   selector: 'app-login',

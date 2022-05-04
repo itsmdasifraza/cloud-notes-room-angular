@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { FooterModule } from '../../navigator/footer/footer.module';
-import { MainHeaderModule } from '../../navigator/main-header/main-header.module';
+// import { FooterModule } from '../../navigator/footer/footer.module';
+// import { MainHeaderModule } from '../../navigator/main-header/main-header.module';
 
 
 @NgModule({
@@ -13,8 +13,8 @@ import { MainHeaderModule } from '../../navigator/main-header/main-header.module
   imports: [
     CommonModule,
     LoginRoutingModule,
-    MainHeaderModule,
-    FooterModule,
+    // MainHeaderModule,
+    // FooterModule,
     ReactiveFormsModule,
     FormsModule,
   ]

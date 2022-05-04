@@ -14,7 +14,7 @@ export class UserHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
   add() {
-    this.router.navigate(["/chat/create"]);
+    this.router.navigate(["/notes/create"]);
   }
 
 }

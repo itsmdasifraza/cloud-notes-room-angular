@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
-import { MainHeaderModule } from '../../navigator/main-header/main-header.module';
-import { FooterModule } from '../../navigator/footer/footer.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterModule } from 'src/app/user/navigator/footer/footer.module';
+import { MainHeaderModule } from 'src/app/user/navigator/main-header/main-header.module';
 
 
 @NgModule({
