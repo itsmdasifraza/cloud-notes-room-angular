@@ -15,6 +15,7 @@ import { FooterModule } from './user/navigator/footer/footer.module';
 import { NotesModule } from './user/pages/dashboard/notes/notes.module';
 import { SettingsModule } from './user/pages/dashboard/settings/settings.module';
 import { SharedModule } from './user/pages/dashboard/shared/shared.module';
+import { ProfileModule } from './user/pages/dashboard/profile/profile.module';
 
 
 
@@ -31,7 +32,8 @@ import { SharedModule } from './user/pages/dashboard/shared/shared.module';
     HttpClientModule,
     NotesModule,
     SettingsModule,
-    SharedModule
+    SharedModule,
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent]

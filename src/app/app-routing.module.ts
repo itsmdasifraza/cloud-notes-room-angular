@@ -14,11 +14,15 @@ const routes: Routes = [
   { path: 'register', canActivate: [UnauthorizedGuard] , loadChildren: () => import('./user/auth/register/register.module').then(m => m.RegisterModule)},
   { path: 'login', canActivate: [UnauthorizedGuard] , loadChildren: () => import('./user/auth/login/login.module').then(m => m.LoginModule)},
   { path: 'forgot-password', canActivate: [UnauthorizedGuard] , loadChildren: () => import('./user/auth/forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule)},
-  { path: 'settings' , canActivate: [AuthorizedGuard], loadChildren: () => import('./user/pages/user/setting/setting.module').then(m => m.SettingModule)},
+  // { path: 'settingsdfrf' , canActivate: [AuthorizedGuard], loadChildren: () => import('./user/pages/user/setting/setting.module').then(m => m.SettingModule)},
+  { path: 'settings' , canActivate: [AuthorizedGuard], loadChildren: () => import('./user/pages/dashboard/settings/settings.module').then(m => m.SettingsModule)},
+  
+  
   { path: 'verify' , canActivate: [UnauthorizedGuard], loadChildren: () => import('./user/pages/user/verify/verify.module').then(m => m.VerifyModule)},
 
 
-  { path: ':username' , loadChildren: () => import('./user/pages/user/profile/profile.module').then(m => m.ProfileModule)},  
+  // { path: ':username' , loadChildren: () => import('./user/pages/user/profile/profile.module').then(m => m.ProfileModule)},  
+  { path: ':username' , loadChildren: () => import('./user/pages/dashboard/profile/profile.module').then(m => m.ProfileModule)},  
  
 
   { path: 'notes', canActivate: [AuthorizedGuard] , loadChildren: () => import('./user/pages/dashboard/notes/notes.module').then(m => m.NotesModule)},
