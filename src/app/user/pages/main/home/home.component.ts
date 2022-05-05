@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
             this.connectService.userRefresh.next(res.data);
             this.spinner = false;
             this.loginForm.reset();
-            this.router.navigate(["/chat"]);
+            this.router.navigate(["/notes/all"]);
 
           },(err)=>{
             // console.log("err",err);

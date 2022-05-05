@@ -58,8 +58,8 @@ export class RegisterComponent implements OnInit {
     
             this.spinner = false;
             this.registerForm.reset();
-            this.success  = res.mssg;
-            // this.router.navigate(["/login"]);
+            this.router.navigate(["/login"]);
+            // this.success  = res.mssg;
 
           },(err)=>{
             // console.log("err",err);

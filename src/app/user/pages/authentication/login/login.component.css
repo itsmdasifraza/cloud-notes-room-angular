@@ -97,7 +97,10 @@ small{
     font-size: 12px;
     /* padding: 0px 10px; */
 }
-
+.login button:disabled,
+.login button[disabled]{
+  opacity: .7;
+}
 .error{
     background-color: #c2c2c2;
     padding: 5px;

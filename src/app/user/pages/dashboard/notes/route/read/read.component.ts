@@ -64,7 +64,7 @@ export class ReadComponent implements OnInit {
       // console.log(routeParams.chatid);
       this.chatid = routeParams.chatid;
       
-      console.log(this.username, this.chatid);
+      // console.log(this.username, this.chatid);
       this.notes = undefined;
      
 
@@ -108,7 +108,7 @@ export class ReadComponent implements OnInit {
       }, err => {
         if (err) {
           // console.log("err", err);
-          this.router.navigate(['/chat']);
+          this.router.navigate(['/notes/all']);
         }
       });
 
@@ -174,7 +174,7 @@ export class ReadComponent implements OnInit {
           }
         });
         this.connectService.chatRefresh.next(this.chatList);
-        this.router.navigate(["/chat"]);
+        this.router.navigate(["/notes/all"]);
       }
     }, (err) => {
       if (err) {
@@ -183,7 +183,7 @@ export class ReadComponent implements OnInit {
     });
   }
   editChat(){
-    this.router.navigate([`/chat/edit/${this.username}/${this.chatid}`]);
+    this.router.navigate([`/notes/${this.chatid}/update`]);
   }
 
   visible() {

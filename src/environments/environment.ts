@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   backend: {
-    connection : "https",
-    ip : "cloud-notes-room.herokuapp.com"
+    connection : "http",
+    ip : "127.0.0.1:3000"
   },
   app : {
     name : "Cloud Notes Room",

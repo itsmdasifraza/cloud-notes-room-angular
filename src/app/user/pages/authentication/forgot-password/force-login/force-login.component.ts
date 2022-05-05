@@ -32,7 +32,7 @@ export class ForceLoginComponent implements OnInit {
           // console.log(this.user);
           this.connectService.userRefresh.next(this.user);
           this.spinner =  false;
-          this.router.navigate(['/chat']);
+          this.router.navigate(['/notes/all']);
         }
       }, err => {
         if (err) {
@@ -42,7 +42,7 @@ export class ForceLoginComponent implements OnInit {
             localStorage.removeItem("user-token");
             this.error = "Invalid or expired force login link";
           }else{
-            this.router.navigate(['/chat']);
+            this.router.navigate(['/notes/all']);
           }
         }
       });

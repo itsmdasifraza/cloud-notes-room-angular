@@ -18,15 +18,15 @@
                         </div>
                         <form [formGroup]="loginForm" (ngSubmit)="login()">
                             <input formControlName="usermail" autocomplete="off" placeholder="username or email">
-                            <small *ngIf="!loginForm.get('usermail').valid && loginForm.get('usermail').touched">
+                            <!-- <small *ngIf="!loginForm.get('usermail').valid && loginForm.get('usermail').touched">
                                 username only use letters, numbers, underscores, periods and contain minimum 4 character or valid email address !
-                            </small>
+                            </small> -->
                             <input type="password" autocomplete="off" formControlName="password" placeholder="password">
-                            <small *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+                            <!-- <small *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
                                 at least one uppercase, one lowercase, one number, one special character @$!%*?& and contain minimum 8 character !
                           
-                            </small>
-                            <button type="submit">LOGIN</button>
+                            </small> -->
+                            <button type="submit" [disabled]="!loginForm.valid">LOGIN</button>
                             <br/><br>
                             <p>Don't have an account? <a routerLink="/register">Register</a>. <br> 
                                 Forgot password? <a routerLink="/forgot-password">Force login</a>.</p>

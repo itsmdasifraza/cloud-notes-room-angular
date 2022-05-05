@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
   }
 
   loginForm = new FormGroup({
-    usermail: new FormControl('', [Validators.required, Validators.minLength(4), this.userVal.bind(this)]),
-    password: new FormControl('', [Validators.required, Validators.minLength(8), this.userPassVal.bind(this)]),
+    usermail: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
 
   });
 
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
             this.connectService.userRefresh.next(res.data);
             this.spinner = false;
             this.loginForm.reset();
-            this.router.navigate(["/chat"]);
+            this.router.navigate(["/notes/all"]);
 
           },(err)=>{
             // console.log("err",err);
@@ -60,20 +60,6 @@ export class LoginComponent implements OnInit {
             this.error = err.error.mssg;
         });
     }
-  }
-  userVal(control:FormControl) {
-    let regUser=/^[a-zA-Z0-9._@%+-]+$/;
-    if(!regUser.test(control.value)){
-      return { 'usernameSyntaxInvalid': true };
-    }
-    return null;
-  }
-  userPassVal(control:FormControl) {
-    let regUser=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    if(!regUser.test(control.value)){
-      return { '[passwordSyntaxInvalid': true };
-    }
-    return null;
   }
 
 }

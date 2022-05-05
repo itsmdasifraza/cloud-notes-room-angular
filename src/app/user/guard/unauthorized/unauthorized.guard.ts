@@ -9,7 +9,7 @@ export class UnauthorizedGuard implements CanActivate {
   constructor(private router:Router) {}
   canActivate(): boolean {
     if (localStorage.getItem("user-token")) {
-      this.router.navigate(["/chat"]);
+      this.router.navigate(["/notes/all"]);
       return false;
     }
     else{

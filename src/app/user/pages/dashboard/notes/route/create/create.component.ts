@@ -103,7 +103,7 @@ app : { name : string } = environment.app;
            this.connectService.chatRefresh.next(this.chats);
             this.spinner = false;
             this.chatForm.reset();
-            this.router.navigate([`/chat/${this.ownerusername}/${singleChat._id}/note/view/all`]);
+            this.router.navigate([`/${this.ownerusername}/${singleChat._id}`]);
 
           },(err)=>{
             // console.log("err",err);

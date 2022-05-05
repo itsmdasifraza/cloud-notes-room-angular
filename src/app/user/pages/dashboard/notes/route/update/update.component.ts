@@ -38,8 +38,20 @@ export class UpdateComponent implements OnInit {
     description: new FormControl('', [Validators.required, Validators.minLength(2)]),
     privacy: new FormControl('', [Validators.required]),
   });
-
+  userSubscription: Subscription;
+  user;
   ngOnInit(): void {
+    this.userSubscription = this.connectService.userRefresh.subscribe(res => {
+      if (res) {
+        // console.log("res",res);
+        this.user = res;
+        this.username = this.user.username;
+      }
+    }, err => {
+      if (err) {
+        // console.log("err", err);
+      }
+    });
 
     this.route.queryParams.subscribe(queryParams => {
       // do something with the query params
@@ -47,7 +59,7 @@ export class UpdateComponent implements OnInit {
     this.route.params.subscribe(routeParams => {
       // console.log(routeParams.chatid);
       this.chatid = routeParams.chatid;
-      this.username = routeParams.username;
+      // this.username = routeParams.username;
 
       this.chatService.readSingleChat(routeParams.chatid).subscribe(res => {
         if (res) {
@@ -107,7 +119,7 @@ export class UpdateComponent implements OnInit {
           this.connectService.chatRefresh.next(this.chats);
           this.spinner = false;
           this.chatForm.reset();
-          this.router.navigate([`/chat/${this.username}/${this.chatid}/note/view/all`]);
+          this.router.navigate([`/${this.username}/${this.chatid}`]);
 
         }, (err) => {
           // console.log("err",err);
