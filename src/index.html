@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" theme="blue-white">
-  <!-- <html lang="en" theme="blue-white"> -->
+<!-- <html lang="en" theme="blue-white"> -->
+
 <head>
   <meta charset="utf-8">
   <base href="/">
@@ -9,14 +10,15 @@
   <title>Social Chat Notes: Where the World Store Notes Private or Public</title>
 
   <!-- Chrome, Firefox OS and Opera -->
-  <meta name="theme-color" content="#734ae4"/>
+  <meta name="theme-color" content="#734ae4" />
   <!-- Windows Phone -->
-  <meta name="msapplication-navbutton-color" content="#734ae4"/>
+  <meta name="msapplication-navbutton-color" content="#734ae4" />
   <!-- iOS Safari -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="#734ae4"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="#734ae4" />
 
-  <meta name="description" content="Millions of users build, push, and maintain their notes on Social Chat Notes — the largest and most advanced Notes Sharing platform in the world. Connect to see your friends notes."/>
-  <meta name="robots" content="index, follow"/> 
+  <meta name="description"
+    content="Millions of users build, push, and maintain their notes on Social Chat Notes — the largest and most advanced Notes Sharing platform in the world. Connect to see your friends notes." />
+  <meta name="robots" content="index, follow" />
   <meta name="keywords" content="social chat notes, md asif raza" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://www.chatnotes.mdasifraza.com/" />
@@ -27,28 +29,31 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <style>
-.main{
-   height: 100vh; 
-height: calc(var(--vh, 1vh) * 100);
-   /* background-color : red; */
-      overflow-y: hidden;
-}
+  @media only screen and (max-width : 767px) {
+    .main {
+      /* height: 100vh; */
+      height: calc(var(--vh, 1vh) * 100);
+      overflow: hidden;
+    }
+  }
 </style>
+
 <body>
   <script>
     // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
- let vh = window.innerHeight * 0.01;
- // Then we set the value in the --vh custom property to the root of the document
- document.documentElement.style.setProperty('--vh', `${vh}px`);
-       // We listen to the resize event
- window.addEventListener('resize', () => {
-   // We execute the same script as before
-   let vh = window.innerHeight * 0.01;
-   document.documentElement.style.setProperty('--vh', `${vh}px`);
- });
-     </script>
-     <div class="main">
-       <app-root></app-root>
-     </div>
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    // We listen to the resize event
+    window.addEventListener('resize', () => {
+      // We execute the same script as before
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
+  </script>
+  <div class="main">
+    <app-root></app-root>
+  </div>
 </body>
+
 </html>

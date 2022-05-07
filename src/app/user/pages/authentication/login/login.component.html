@@ -1,36 +1,51 @@
-<section>
+<div style="position: relative;">
+    <div class="login-gradient">
+        <div class="custom-shape-divider-bottom-1616424027">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill">
+                </path>
+            </svg>
+        </div>
+        <div class="custom-shape-divider-hider"></div>
+    </div>
+</div>
+<section class="scrollable">
     <div class="admin-login">
-        <div class="container">
-            <div class="row">
-                <div class="col">
+        <div>
+            <div class="login-flex">
+                <div class="outer-login">
+                    <div class="intro">
+                        <h1>Login</h1>
+                        <p>Login to discover amazing things in the world.</p>
+                        <!-- <div class="text-center" *ngIf="spinner==true">
+                                <div class="spinner-border" style="width:18px; height:18px;" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div> -->
+                    </div>
                     <div class="login">
-                        <div class="d-flex justify-content-between">
-                            <h1>LOGIN</h1>
-                        
-                        <div class="text-center"  *ngIf="spinner==true">
-                            <div class="spinner-border" style="width:18px; height:18px;"  role="status">
-                              <span class="sr-only">Loading...</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="error" *ngIf="error">
-                            <p >{{error}}</p>
-                        </div>
                         <form [formGroup]="loginForm" (ngSubmit)="login()">
-                            <input formControlName="usermail" autocomplete="off" placeholder="username or email">
-                            <!-- <small *ngIf="!loginForm.get('usermail').valid && loginForm.get('usermail').touched">
-                                username only use letters, numbers, underscores, periods and contain minimum 4 character or valid email address !
-                            </small> -->
-                            <input type="password" autocomplete="off" formControlName="password" placeholder="password">
-                            <!-- <small *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
-                                at least one uppercase, one lowercase, one number, one special character @$!%*?& and contain minimum 8 character !
-                          
-                            </small> -->
-                            <button type="submit" [disabled]="!loginForm.valid">LOGIN</button>
-                            <br/><br>
-                            <p>Don't have an account? <a routerLink="/register">Register</a>. <br> 
-                                Forgot password? <a routerLink="/forgot-password">Force login</a>.</p>
+                            <div class="error" *ngIf="error">
+                                <p>{{error}}</p>
+                            </div>
+                            <input formControlName="usermail" autocomplete="off" placeholder="Username or Email">
+                            <input type="password" autocomplete="off" formControlName="password" placeholder="Password">
+                            <button type="submit" [disabled]="!loginForm.valid">Login</button>
+                            <div class="forgot-pass">
+                                <a routerLink="/forgot-password">
+                                    <h6>Forgot Password?</h6>
+                                </a>
+                            </div>
                         </form>
+                    </div>
+                    <div class="dont-have">
+                        <p class="color-dark">------- Don't have an account? -------</p>
+                    </div>
+                    <div class="already-acc">
+                        <a routerLink="/register">
+                            <button>Register</button>
+                        </a>
                     </div>
                 </div>
             </div>

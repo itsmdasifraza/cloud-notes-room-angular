@@ -2,7 +2,7 @@
     position: relative;
     background-image:var(--themehome);
     z-index: 0 ;
-    margin-top: -55px;
+    /* margin-top: -55px; */
     overflow: hidden !important;
 }
 .app-quote{
@@ -11,15 +11,7 @@
 .app-quote p {
     color: white;
 }
-.featured-image{
-    
-    opacity: .1;
-    position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-}
+
 .custom-shape-divider-bottom-1616424027 {
     position: absolute;
     bottom: 0;
@@ -42,7 +34,7 @@
     fill: #FFFFFF;
 }
 .spacing{
-    padding:60px 0 110px 0;
+    padding:10px 0 110px 0;
 }
 .home-main h1{
     font-size: 50px;
@@ -103,25 +95,8 @@ a{
         padding: 50px 0;
         padding-bottom: 10px;
     }
-    .featured-image{
-        opacity: .1;
-        position: absolute;
-        top:0;
-        left:-100px;
-        right:-100px;
-        bottom:0;
-    }
 }
-@media only screen and (max-width:450px){
-    .featured-image{
-        opacity: .1;
-        position: absolute;
-        top:0;
-        left:-230px;
-        right:-230px;
-        bottom:0;
-    }
-}
+
 .login-form{
     background-color: var(--themenonotesbg);
     padding: 30px 15px;

@@ -7,7 +7,7 @@ body{
 /* Default App Theme Colors */
 [theme="blue-white"]{
     --themeheader : #734ae4;
-    --themebg:linear-gradient(to right, #eaafc8, #654ea3); 
+    --themebg:linear-gradient(to bottom,#734ae4, #eaafc8 );
     --themelogo : rgb(53, 53, 53) ;
     --themenonotesbg : #f7eeef;
     --themenoteslistbg : #f7eeef;
@@ -17,16 +17,8 @@ body{
     --themeaddbutton:rgb(184, 184, 184);
     --themefooter : #734ae4;
     --activelink : rgb(234, 243, 253);
-    --themehome : linear-gradient(to right,#654ea3, #eaafc8 );  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --themehome : linear-gradient(to bottom,#734ae4, #eaafc8 );  
 
-}
-/* Default App Theme Colors */
-@media only screen and (max-width : 767px){
-    [theme="blue-white"]{
-        --themebg:linear-gradient(to right, #734ae4, #8b67e6);
-        --themehome : linear-gradient(to right,#734ae4, #8b67e6 );  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    }
 }
 
 /* Custom App Theme Colors */
@@ -48,8 +40,11 @@ body{
 
 
 
-.scrollable{
-    height: 100vh; 
- height: calc(var(--vh, 1vh) * 100);
-       overflow-y: scroll;
+
+ @media only screen and (max-width : 767px){
+    .scrollable{
+        /* height: 100vh;  */
+        height: calc(var(--vh, 1vh) * 100);
+        overflow-y: scroll;
+     }
  }

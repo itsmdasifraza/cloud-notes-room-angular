@@ -1,70 +1,68 @@
 <div class="scrollable">
 
     <app-main-header></app-main-header>
- 
- <div class="home-main spacing">
-     <div class="featured-image">
-         <img src="assets/featured.jpg" width="100%" height="100%" alt="">
-     </div>
-     <div class="custom-shape-divider-bottom-1616424027">
-         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-             <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill"></path>
-         </svg>
-     </div>
-     <div class="container">
-         <div class="row align-items-center justify-content-between">
-             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 pb-4">
-                 <div class="app-quote">
-                     <div >
 
-                         <h1 class="pb-4">Where the world store <br class="d-sm-none"> notes private or public,</h1>
-                            <p>Millions of users build, push, and maintain their notes on {{app.name | titlecase}} — the largest 
+    <div class="home-main spacing">
+        <div class="custom-shape-divider-bottom-1616424027">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 pb-4">
+                    <div class="app-quote">
+                        <div>
+                            <h1 class="pb-4">Where the world store <br class="d-sm-none"> notes private or public,</h1>
+                            <p>Millions of users build, push, and maintain their notes on {{app.name | titlecase}} — the
+                                largest
                                 and most advanced Notes Sharing platform in the world.
                                 Connect to see your friends notes.</p>
                         </div>
- 
-                     
-                 </div>
-             </div>
-             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 pb-4">
-                 <!-- <div class="">
+
+
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 pb-4">
+                    <!-- <div class="">
                      <img src="assets/sticky-notes.png" class="image" alt="">
                  </div> -->
-                 <div class="login-form">
-                   
-                     <div class="d-flex justify-content-between">
-                        <h5 class="text-black"><b>LOGIN</b></h5>
-                    
-                    <div class="text-center"  *ngIf="spinner==true">
-                        <div class="spinner-border" style="width:18px; height:18px;"  role="status">
-                          <span class="sr-only">Loading...</span>
+                    <div class="login-form">
+
+                        <div class="d-flex justify-content-between">
+                            <h5 class="text-black"><b>LOGIN</b></h5>
+
+                            <div class="text-center" *ngIf="spinner==true">
+                                <div class="spinner-border" style="width:18px; height:18px;" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="error" *ngIf="error">
-                        <p class="m-0 text-center" style="font-size:12px; ">{{error}}</p>
-                    </div>
-                    <form [formGroup]="loginForm" (ngSubmit)="login()">
-                        <input formControlName="usermail" autocomplete="off" placeholder="username or email">
-                        <!-- <small *ngIf="!loginForm.get('usermail').valid && loginForm.get('usermail').touched">
+                        <div class="error" *ngIf="error">
+                            <p class="m-0 text-center" style="font-size:12px; ">{{error}}</p>
+                        </div>
+                        <form [formGroup]="loginForm" (ngSubmit)="login()">
+                            <input formControlName="usermail" autocomplete="off" placeholder="username or email">
+                            <!-- <small *ngIf="!loginForm.get('usermail').valid && loginForm.get('usermail').touched">
                             must contain minimum 4 character !
                         </small> -->
-                        <input type="password" autocomplete="off" formControlName="password" placeholder="password">
-                        <!-- <small *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+                            <input type="password" autocomplete="off" formControlName="password" placeholder="password">
+                            <!-- <small *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
                             must contain minimum 8 character !
                         </small> -->
-                        <button type="submit" [disabled]="!loginForm.valid">LOGIN</button>
-                        <br>
-                        <p class="text-center m-0" style="font-size: 12px;">
-                            Forgot password? <a routerLink="/forgot-password">Force login</a>.</p>
-                 
-                    </form>
+                            <button type="submit" [disabled]="!loginForm.valid">LOGIN</button>
+                            <br>
+                            <p class="text-center m-0" style="font-size: 12px;">
+                                Forgot password? <a routerLink="/forgot-password">Force login</a>.</p>
+
+                        </form>
+                    </div>
                 </div>
-             </div>
-         </div>
-     </div>
- </div>
- <app-explaination></app-explaination>
- 
- <app-footer></app-footer>
+            </div>
+        </div>
+    </div>
+    <app-explaination></app-explaination>
+
+    <app-footer></app-footer>
 </div>
