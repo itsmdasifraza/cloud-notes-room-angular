@@ -1,13 +1,11 @@
 .contact{
     background: var(--themebg);
-    margin-top: -55px;
-    min-height: calc(100vh - 55px);
-    min-height: calc(calc(var(--vh, 1vh) * 100) - 55px);
+    min-height: calc(100vh - 110px);
 }
 .contact-data{
     color: white;
     margin-top:150px;
-    margin-bottom:150px;
+    margin-bottom:50px;
 }
 h1{
     font-size: 50px;
@@ -37,9 +35,7 @@ a{
     }
   }
 @media only screen and (max-width:767px){
-    .contact-data{
-       
-        margin-top:150px;
-        margin-bottom:50px;   
+    .contact{
+        min-height: calc(calc(var(--vh, 1vh) * 100) - 110px);
     }
 }

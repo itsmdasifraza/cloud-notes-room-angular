@@ -1,6 +1,5 @@
 .policy{
     background: var(--themebg);
-    margin-top: -55px;
 }
 .policy-data{
     color: white;
@@ -32,8 +31,7 @@ p{
     }
   }
 @media only screen and (max-width:767px){
-    .policy-data{
-       
+    .policy-data{   
         margin-top:100px;
         margin-bottom:50px;   
     }

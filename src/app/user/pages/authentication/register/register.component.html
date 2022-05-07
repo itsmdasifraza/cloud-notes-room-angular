@@ -1,42 +1,65 @@
-<section>
+<div style="position: relative;">
+    <div class="login-gradient">
+        <div class="custom-shape-divider-bottom-1616424027">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill">
+                </path>
+            </svg>
+        </div>
+        <div class="custom-shape-divider-hider"></div>
+    </div>
+</div>
+<section class="scrollable">
     <div class="admin-login">
-        <div class="container">
-            <div class="row">
-                <div class="col">
+        <div>
+            <div class="login-flex">
+                <div class="outer-login">
+                    <div class="intro">
+                        <h1>Register</h1>
+                        <p>Register to discover amazing things in the world.</p>
+                      
+                    </div>
                     <div class="login">
-                        <div class="d-flex justify-content-between">
-                            <h1>REGISTER</h1>
-                            <div class="text-center" *ngIf="spinner==true">
-                                <div class="spinner-border" style="width:18px; height:18px;"  role="status">
-                                  <span class="sr-only">Loading...</span>
-                                </div>
-                              </div>
-                        </div>
-                        <!-- <h2>(Administrator)</h2> -->
-                        
-                        <div class="error" *ngIf="error">
-                            <p >{{error}}</p>
-                        </div>
-                        <div class="success" *ngIf="success">
-                            <p >{{success}}</p>
-                        </div>
                         <form [formGroup]="registerForm" (ngSubmit)="register()">
-                            <input formControlName="username" autocomplete="off" placeholder="username">
-                            <small *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched">
-                                only use letters, numbers, underscores, periods and contain between 4 to 36 character !
-                            </small>
-                            <input formControlName="email" autocomplete="off" placeholder="email">
-                            <small *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">
-                                must contain valid email address !
-                            </small>
-                            <input type="password" autocomplete="off" formControlName="password" placeholder="password">
-                            <small *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">
-                                at least one uppercase, one lowercase, one number, one special character @$!%*?& and contain minimum 8 character !
-                            </small>
-                            <button type="submit">REGISTER</button>
-                            <br/><br>
-                            <p>Already have an account? <a routerLink="/login">Login</a>.</p>
+                            <div class="error" *ngIf="error">
+                                <p >{{error}}</p>
+                            </div>
+                            <input formControlName="username" autocomplete="off" autocapitalize="none" placeholder="Username">
+                            <div class="error-input" style>
+                                <p *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched">
+                                    only use letters, numbers, underscores, periods and contain between 4 to 36 character !
+                                </p>
+                            </div>
+                            <input formControlName="email" autocomplete="off" autocapitalize="none" placeholder="Email">
+                            <div class="error-input">
+                                <p *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">
+                                    must contain valid email address !
+                                </p>
+                            </div>
+                            
+                            <input type="password" autocomplete="off" autocapitalize="none" formControlName="password" placeholder="Password">
+                            <div class="error-input">
+                                <p *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">
+                                    at least one uppercase, one lowercase, one number, one special character @$!%*?& and contain minimum 8 character !
+                                </p>
+                            </div>
+                            <button type="submit" [disabled]="!registerForm.valid" class="d-flex justify-content-center align-items-center">
+                                <span class="mr-2">Register</span>
+                                <div class="text-center" *ngIf="spinner==true">
+                                    <div class="spinner-border" style="width:16px; height:16px;" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div> </button>
                         </form>
+                    </div>
+                    <div class="dont-have">
+                        <p class="color-dark">------- Already have an account? -------</p>
+                    </div>
+                    <div class="already-acc">
+                        <a routerLink="/login">
+                            <button>Login</button>
+                        </a>
                     </div>
                 </div>
             </div>

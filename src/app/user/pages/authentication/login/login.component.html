@@ -18,20 +18,22 @@
                     <div class="intro">
                         <h1>Login</h1>
                         <p>Login to discover amazing things in the world.</p>
-                        <!-- <div class="text-center" *ngIf="spinner==true">
-                                <div class="spinner-border" style="width:18px; height:18px;" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </div>
-                            </div> -->
                     </div>
                     <div class="login">
                         <form [formGroup]="loginForm" (ngSubmit)="login()">
                             <div class="error" *ngIf="error">
                                 <p>{{error}}</p>
                             </div>
-                            <input formControlName="usermail" autocomplete="off" placeholder="Username or Email">
-                            <input type="password" autocomplete="off" formControlName="password" placeholder="Password">
-                            <button type="submit" [disabled]="!loginForm.valid">Login</button>
+                            <input formControlName="usermail" autocomplete="off" autocapitalize="none" placeholder="Username or Email">
+                            <input type="password" autocomplete="off" autocapitalize="none" formControlName="password" placeholder="Password">
+                            <button type="submit" [disabled]="!loginForm.valid" class="d-flex justify-content-center align-items-center">
+                              <span class="mr-2">Login</span>
+                              <div class="text-center" *ngIf="spinner==true">
+                                <div class="spinner-border" style="width:16px; height:16px;" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div> 
+                            </button>
                             <div class="forgot-pass">
                                 <a routerLink="/forgot-password">
                                     <h6>Forgot Password?</h6>
