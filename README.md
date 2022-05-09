@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Cloud Notes Room Nodejs API ( Server )
 Checkout [Backend Repository](https://github.com/itsmdasifraza/cloud-notes-room-nodejs-api) for further code.
 
-### Checkout Deployed Application 
+### Deployed Application 
 [https://cloudnotesroom.web.app/](https://cloudnotesroom.web.app/)
 
 ### Development server
