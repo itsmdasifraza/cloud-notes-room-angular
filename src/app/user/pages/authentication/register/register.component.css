@@ -151,14 +151,18 @@ small{
 .intro p{
     font-size: 14px;
 }
-.forgot-pass h6{
+.terms-policy small{
     font-size: 12px;
-    font-weight: bold;
+    display: block;
     text-align: center;
-    color: var(--themeheader);
+    color: gray;
 }
-.forgot-pass a{
+.terms-policy a{
     text-decoration: none;
+    outline: none;
+      font-weight: bold;
+     color: var(--themeheader);
+     cursor: pointer;
 } 
 .login button:disabled,
 .login button[disabled]{

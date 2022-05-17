@@ -7,7 +7,7 @@ body{
 /* Default App Theme Colors */
 [theme="blue-white"]{
     --themeheader : #734ae4;
-    --themebg:linear-gradient(to bottom,#734ae4, #eaafc8 );
+    --themebg:linear-gradient(to bottom,#734ae4, #8562e7 );
     --themelogo : rgb(53, 53, 53) ;
     --themenonotesbg : #f7eeef;
     --themenoteslistbg : #f7eeef;
@@ -15,7 +15,7 @@ body{
     --themenotespointsbg : white;
     --themedeletebutton :rgb(184, 184, 184);
     --themeaddbutton:rgb(184, 184, 184);
-    --themefooter : #734ae4;
+    --themefooter : #8562e7 ;
     --activelink : rgb(234, 243, 253);
     --themehome : linear-gradient(to bottom,#734ae4, #eaafc8 );  
 
@@ -48,3 +48,22 @@ body{
         overflow-y: scroll;
      }
  }
+
+ @media only screen and (min-width:768px){
+
+    /* MY CUSTOM SCROLLBAR */
+    ::-webkit-scrollbar {
+        width: 5px;
+      }
+      
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: rgb(0,0,0,0.6);
+    }
+      /* MY CUSTOM SCROLLBAR */
+    }

@@ -18,17 +18,19 @@
                     <div class="intro">
                         <h1>Register</h1>
                         <p>Register to discover amazing things in the world.</p>
-                      
+
                     </div>
                     <div class="login">
                         <form [formGroup]="registerForm" (ngSubmit)="register()">
                             <div class="error" *ngIf="error">
-                                <p >{{error}}</p>
+                                <p>{{error}}</p>
                             </div>
-                            <input formControlName="username" autocomplete="off" autocapitalize="none" placeholder="Username">
+                            <input formControlName="username" autocomplete="off" autocapitalize="none"
+                                placeholder="Username">
                             <div class="error-input" style>
                                 <p *ngIf="!registerForm.get('username').valid && registerForm.get('username').touched">
-                                    only use letters, numbers, underscores, periods and contain between 4 to 36 character !
+                                    only use letters, numbers, underscores, periods and contain between 4 to 36
+                                    character !
                                 </p>
                             </div>
                             <input formControlName="email" autocomplete="off" autocapitalize="none" placeholder="Email">
@@ -37,20 +39,27 @@
                                     must contain valid email address !
                                 </p>
                             </div>
-                            
-                            <input type="password" autocomplete="off" autocapitalize="none" formControlName="password" placeholder="Password">
+
+                            <input type="password" autocomplete="off" autocapitalize="none" formControlName="password"
+                                placeholder="Password">
                             <div class="error-input">
                                 <p *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">
-                                    at least one uppercase, one lowercase, one number, one special character @$!%*?& and contain minimum 8 character !
+                                    at least one uppercase, one lowercase, one number, one special character @$!%*?& and
+                                    contain minimum 8 character !
                                 </p>
                             </div>
-                            <button type="submit" [disabled]="!registerForm.valid" class="d-flex justify-content-center align-items-center">
+                            <button type="submit" [disabled]="!registerForm.valid"
+                                class="d-flex justify-content-center align-items-center">
                                 <span class="mr-2">Register</span>
                                 <div class="text-center" *ngIf="spinner==true">
                                     <div class="spinner-border" style="width:16px; height:16px;" role="status">
                                         <span class="sr-only">Loading...</span>
                                     </div>
-                                </div> </button>
+                                </div>
+                            </button>
+                            <div class="terms-policy">
+                                    <small>By registering you accept our <a routerLink="/terms-of-service">Terms of Services</a> and <a routerLink="/privacy-policy">Privacy Policy</a>.</small>
+                            </div>
                         </form>
                     </div>
                     <div class="dont-have">

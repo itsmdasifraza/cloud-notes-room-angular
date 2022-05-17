@@ -3,7 +3,6 @@
     padding: 17px 0;
     background-color: var(--themefooter);
     position: relative;
-    opacity: .9;
     height: 55px;
 }
 .footer a,span{

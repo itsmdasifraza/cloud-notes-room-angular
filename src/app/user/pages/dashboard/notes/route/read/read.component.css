@@ -1,6 +1,6 @@
 .notes-detail{
     min-height: 100vh;
-    min-height: calc(var(--vh, 1vh) * 100);
+    /* min-height: calc(var(--vh, 1vh) * 100); */
     background: var(--themebg);
     /* animation: fadeIn; */
     /* -webkit-animation: fadeIn; */
