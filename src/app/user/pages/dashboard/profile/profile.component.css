@@ -1,12 +1,12 @@
 .right-area{
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100vh; 
     overflow-y: scroll;
+    overflow-y: overlay;
 }
 .left-area{
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100vh; 
     overflow-y: scroll;
+    overflow-y: overlay;
 }
 
 @media only screen and (max-width:767px){
@@ -25,8 +25,8 @@
         padding-top: 0;
          padding-bottom:0;
          min-height: 100vh;
-         min-height: calc(var(--vh, 1vh) * 100);
-         background: var(--themebg);    
+         /* background: var(--themebg);     */
+         background-color: rgb(238, 229, 229);
      
 }
 
@@ -38,13 +38,13 @@
     0 8px 8px rgba(0,0,0,0.12),
     0 16px 16px rgba(0,0,0,0.12);
     min-height: 100vh;
-    min-height: calc(var(--vh, 1vh) * 100);
     border-right: 1px solid rgb(228, 225, 225);
     background-color: var(--themenoteslistbg );
    
 }
 .profile-icon-main{
-    height: calc(calc(var(--vh, 1vh) * 100) - 170px);
+    height: calc(100vh - 170px);
+    /* height: calc(calc(var(--vh, 1vh) * 100) - 170px); */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,17 +137,21 @@
     .dnone{
         display: none !important;
     }
+    .profile-icon-main{
+        height: calc(calc(var(--vh, 1vh) * 100) - 170px);
+    }
     .router-wrapper{
         padding-top: 0;
         padding-left: 0;
         padding-right: 0;
         background: none;
        background-color:  var(--themenoteslistbg );
+       min-height: calc(var(--vh, 1vh) * 100);
     }
     .pro-scroll{
         height: 100vh; 
         height: calc(var(--vh, 1vh) * 100);
-              overflow-y: scroll;
+        overflow-y: scroll;
     }
     /* .list{
         z-index: 3;

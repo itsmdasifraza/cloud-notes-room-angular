@@ -1,7 +1,8 @@
 .notes-detail{
     min-height: 100vh;
     /* min-height: calc(var(--vh, 1vh) * 100); */
-    background: var(--themebg);
+    /* background: var(--themebg); */
+    background-color: #edeee6
     /* animation: fadeIn; */
     /* -webkit-animation: fadeIn; */
     /* animation-duration: .5s; */

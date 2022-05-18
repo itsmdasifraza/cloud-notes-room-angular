@@ -12,6 +12,7 @@ import { userInfo } from 'os';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
 
 import { ProfileService } from 'src/app/user/services/profile/profile.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-read',
   templateUrl: './read.component.html',
@@ -26,11 +27,12 @@ export class ReadComponent implements OnInit {
   ];
   chat;
   listItem;
-  location = window.location.href;
+  location : string = window.location.href;
+  app : { name : string } = environment.app;
   refreshSubscription : Subscription;
   constructor(private profileService: ProfileService ,private route: ActivatedRoute, private chatService: ChatService, private noteService: NoteService, private router: Router, private connectService: ConnectService, private titleService: Title, private meta: Meta) {
-    this.titleService.setTitle("Read Chat");
-    this.meta.updateTag({ name: 'description', content: `Read your chat.` });
+    this.titleService.setTitle(`Loading Notes ... | ${this.app.name}`);
+    this.meta.updateTag({ name: 'description', content: `Read your notes.` });
     this.meta.updateTag({ property: "og:url", content: `${this.location}` });
   }
 
@@ -75,7 +77,7 @@ export class ReadComponent implements OnInit {
           this.owner = res.owner;
           this.chat = res.data;
           this.chat.stamp.month = this.months[this.chat.stamp.month];
-
+          this.titleService.setTitle(`${res.data.title} | ${this.app.name}`);
           this.subscription = this.noteService.readNote(routeParams.chatid).subscribe(res => {
             if (res) {
               // console.log("res",res);

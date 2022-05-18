@@ -4,6 +4,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
 import { ProfileService } from 'src/app/user/services/profile/profile.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-update-details',
@@ -12,9 +13,10 @@ import { ProfileService } from 'src/app/user/services/profile/profile.service';
 })
 export class UpdateDetailsComponent implements OnInit {
   location = window.location.href;
+  app : { name : string } = environment.app;
   constructor(private connectService : ConnectService ,private route: ActivatedRoute, private fb: FormBuilder, private router: Router, private profileService: ProfileService,private titleService:Title, private meta: Meta) { 
     this.connectService.settingToggle.next(false);
-    this.titleService.setTitle("Change Info");
+    this.titleService.setTitle(`Details | ${this.app.name}`);
     this.meta.updateTag({ name: 'description', content: `Change user info.` });
     this.meta.updateTag({ property: "og:url", content: `${this.location}` });
  
@@ -29,7 +31,7 @@ export class UpdateDetailsComponent implements OnInit {
     education: new FormControl('', []),
     about: new FormControl('', []),
   });
-
+  spinner: Boolean = false;
   ngOnInit(): void {
  
     this.connectService.userRefresh.subscribe(res => {

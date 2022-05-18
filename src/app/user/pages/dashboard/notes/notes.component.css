@@ -1,12 +1,12 @@
 .right-area{
     height: 100vh; 
-    /* height: calc(var(--vh, 1vh) * 100); */
     overflow-y: scroll;
+    overflow-y: overlay;
 }
 .left-area{
     height: 100vh; 
-    /* height: calc(var(--vh, 1vh) * 100); */
     overflow-y: scroll;
+    overflow-y: overlay;
 }
 
 @media only screen and (max-width:767px){

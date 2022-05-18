@@ -6,6 +6,7 @@ import { ChatService } from 'src/app/user/services/chat/chat.service';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
 import { ProfileService } from 'src/app/user/services/profile/profile.service';
 import { UserService } from 'src/app/user/services/user/user.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -15,8 +16,9 @@ import { UserService } from 'src/app/user/services/user/user.service';
 export class ProfileComponent implements OnInit {
 
   location = window.location.href;
+  app : { name : string } = environment.app;
   constructor(private connectService : ConnectService, private route: ActivatedRoute, private userService: UserService, private router: Router, private chatService: ChatService, private profileService: ProfileService, private titleService: Title, private meta : Meta) { 
-    this.titleService.setTitle("User Profile");
+    
     this.meta.updateTag({ name: 'description', content: `Visit user account.` });
     this.meta.updateTag({ property: "og:url", content: `${this.location}` });
  
@@ -49,7 +51,9 @@ export class ProfileComponent implements OnInit {
       this.publicChat = undefined;
       this.userData = undefined;
       // console.log(routeParams.username);
+      this.titleService.setTitle(`${routeParams.username} | ${this.app.name}`);
       this.profileService.readProfile(routeParams.username).subscribe(res => {
+        
         if (res) {
           // console.log("res",res);
           this.userData = res.data;

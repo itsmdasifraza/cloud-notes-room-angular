@@ -4,6 +4,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
 import { ProfileService } from 'src/app/user/services/profile/profile.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-update-avatar',
@@ -12,9 +13,10 @@ import { ProfileService } from 'src/app/user/services/profile/profile.service';
 })
 export class UpdateAvatarComponent implements OnInit {
   location = window.location.href;
+  app : { name : string } = environment.app;
   constructor(private connectService : ConnectService ,private route: ActivatedRoute,private fb: FormBuilder,private router: Router , private profileService : ProfileService , private titleService:Title, private meta: Meta) { 
     this.connectService.settingToggle.next(false);
-    this.titleService.setTitle("Change Icon");
+    this.titleService.setTitle(`Icons | ${this.app.name}`);
     this.meta.updateTag({ name: 'description', content: `Change user icon.` });
     this.meta.updateTag({ property: "og:url", content: `${this.location}` });
   }
@@ -23,7 +25,7 @@ export class UpdateAvatarComponent implements OnInit {
   changeAvatarForm = this.fb.group({ 
     user_icon: new FormControl('', [Validators.required]),
   });
-
+  spinner: Boolean = false;
   ngOnInit(): void {
   
   this.connectService.userRefresh.subscribe(res => {

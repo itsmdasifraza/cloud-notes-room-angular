@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: '', canActivate: [UnauthorizedGuard],  loadChildren: () => import('./user/pages/main/home/home.module').then(m => m.HomeModule)},
   { path: 'contact', canActivate: [UnauthorizedGuard],  loadChildren: () => import('./user/pages/main/contact/contact.module').then(m => m.ContactModule)},
   { path: 'about', canActivate: [UnauthorizedGuard],  loadChildren: () => import('./user/pages/main/about/about.module').then(m => m.AboutModule)},
-  { path: 'policy', canActivate: [UnauthorizedGuard],  loadChildren: () => import('./user/pages/guide/policy/policy.module').then(m => m.PolicyModule)},
+  { path: 'privacy-policy', canActivate: [UnauthorizedGuard],  loadChildren: () => import('./user/pages/guide/policy/policy.module').then(m => m.PolicyModule)},
   // { path: 'chat', canActivate: [AuthorizedGuard] , loadChildren: () => import('./user/pages/chat/read-chat/read-chat.module').then(m => m.ReadChatModule)},
 
   

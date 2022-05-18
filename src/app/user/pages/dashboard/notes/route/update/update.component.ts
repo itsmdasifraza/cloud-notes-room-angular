@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { ChatService } from 'src/app/user/services/chat/chat.service';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
 import { UserService } from 'src/app/user/services/user/user.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-update',
@@ -21,9 +22,10 @@ export class UpdateComponent implements OnInit {
   owneruser;
   ownerusername;
   location = window.location.href;
+  app : { name : string } = environment.app;
   constructor(private route: ActivatedRoute, private connectService: ConnectService, private userService: UserService, private chatService: ChatService, private router: Router, private titleService: Title, private meta: Meta) {
     this.connectService.chatToggle.next(false);
-    this.titleService.setTitle("Edit Chat");
+    this.titleService.setTitle(`Update Notes | ${this.app.name}`);
     this.meta.updateTag({ name: 'description', content: `Edit existing chat.` });
     this.meta.updateTag({ property: "og:url", content: `${this.location}` });
  

@@ -1,68 +1,4 @@
-<!-- <div class="container">
-    <div class="row gutters">
-        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-            
-        </div>
-        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-            
-            <div class="card">
-                <div class="card-body" *ngIf="userData">
-                    <form [formGroup]="changeProfileForm" (ngSubmit)="changeProfile()">
-                    <div class="row gutters">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <h6 class="mb-2 text-primary">Personal Details</h6>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="fullName">Display Name</label>
-                                <input type="text"   class="form-control" formControlName="name" id="fullName" placeholder="Enter full name">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Enter email ID">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="address">Address</label>
-                                <input type="text" class="form-control" formControlName="address" id="address" placeholder="Enter phone number">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="college">College Name</label>
-                                <input type="text" class="form-control" formControlName="college" id="college" placeholder="Enter phone number">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="education">Education</label>
-                                <input type="text" class="form-control" formControlName="education" id="education" placeholder="Enter phone number">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="about">About</label>
-                                <input type="text" class="form-control" formControlName="about" id="about" placeholder="Enter phone number">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="">
-                                <button class="submit-button" type="submit">Change Profile Info</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                  
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<div class="update-info">
+<!-- <div class="update-info">
    
     <div class="info-box btns ">
 
@@ -72,37 +8,31 @@
             <div class="row gutters">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                        <!-- <label for="fullName">Name</label> -->
                         <input type="text"  autocomplete="off"   formControlName="name" id="fullName" placeholder="Name">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                        <!-- <label for="phone">Phone</label> -->
                         <input type="text" autocomplete="off"  formControlName="phone" id="phone" placeholder="Phone">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                        <!-- <label for="address">Address</label> -->
                         <input type="text" autocomplete="off" formControlName="address" id="address" placeholder="Address">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                        <!-- <label for="college">College</label> -->
                         <input type="text" autocomplete="off"  formControlName="college" id="college" placeholder="College">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                        <!-- <label for="education">Education</label> -->
                         <input type="text" autocomplete="off"  formControlName="education" id="education" placeholder="Education">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                        <!-- <label for="about">About</label> -->
                         <input type="text" autocomplete="off"  formControlName="about" id="about" placeholder="About">
                     </div>
                 </div>
@@ -114,4 +44,52 @@
             </div>
         </form>    
     </div>
+</div> -->
+
+<div style="position: relative;">
+    <div class="login-gradient">
+        <div class="custom-shape-divider-bottom-1616424027">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z" class="shape-fill">
+                </path>
+            </svg>
+        </div>
+        <div class="custom-shape-divider-hider"></div>
+    </div>
 </div>
+<section class="">
+    <div class="admin-login">
+        <div>
+            <div class="login-flex">
+                <div class="outer-login">
+                    <div class="intro">
+                        <h1>Create new details</h1>
+                        <p>Create new Details and remember this will be reflected on your public profile.</p>
+                    </div>
+                    <div class="login">
+                        <form [formGroup]="changeProfileForm" (ngSubmit)="changeProfile()">
+                            <div class="form">
+                                <input type="text"  autocomplete="off"   formControlName="name" id="fullName" placeholder="Name">
+                                <input type="text" autocomplete="off"  formControlName="phone" id="phone" placeholder="Phone">
+                                <input type="text" autocomplete="off" formControlName="address" id="address" placeholder="Address">
+                                <input type="text" autocomplete="off"  formControlName="college" id="college" placeholder="College">
+                                <input type="text" autocomplete="off"  formControlName="education" id="education" placeholder="Education">
+                                <input type="text" autocomplete="off"  formControlName="about" id="about" placeholder="About">
+               
+                                <button type="submit" [disabled]="!changeProfileForm.valid" class="d-flex justify-content-center align-items-center">
+                                    <span class="mr-2">Update Details</span>
+                                    <div class="text-center" *ngIf="spinner==true">
+                                      <div class="spinner-border" style="width:16px; height:16px;" role="status">
+                                          <span class="sr-only">Loading...</span>
+                                      </div>
+                                  </div> 
+                                  </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

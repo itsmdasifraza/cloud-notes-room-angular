@@ -12,8 +12,8 @@ const routes: Routes = [
     path : '' , 'component' : SettingsComponent,
     children:[
       { path: '', 'component' : DefaultSettingScreenComponent },
-      { path: 'user-icon', 'component' : UpdateAvatarComponent},
-      { path: 'info', 'component' : UpdateDetailsComponent},
+      { path: 'icons', 'component' : UpdateAvatarComponent},
+      { path: 'details', 'component' : UpdateDetailsComponent},
       { path: 'password', 'component' : UpdatePasswordComponent},
     ]
   }
