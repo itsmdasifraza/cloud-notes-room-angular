@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'settings' , canActivate: [AuthorizedGuard], loadChildren: () => import('./user/pages/dashboard/settings/settings.module').then(m => m.SettingsModule)},
   
   
-  { path: 'verify' , canActivate: [UnauthorizedGuard], loadChildren: () => import('./user/pages/user/verify/verify.module').then(m => m.VerifyModule)},
+  { path: 'verify' , loadChildren: () => import('./user/pages/user/verify/verify.module').then(m => m.VerifyModule)},
 
 
   // { path: ':username' , loadChildren: () => import('./user/pages/user/profile/profile.module').then(m => m.ProfileModule)},  

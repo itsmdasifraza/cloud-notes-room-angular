@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ChatService } from 'src/app/user/services/chat/chat.service';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
+import { NoteService } from 'src/app/user/services/note/note.service';
 import { ProfileService } from 'src/app/user/services/profile/profile.service';
 import { UserService } from 'src/app/user/services/user/user.service';
 import { environment } from 'src/environments/environment';
@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
 
   location = window.location.href;
   app : { name : string } = environment.app;
-  constructor(private connectService : ConnectService, private route: ActivatedRoute, private userService: UserService, private router: Router, private chatService: ChatService, private profileService: ProfileService, private titleService: Title, private meta : Meta) { 
+  constructor(private connectService : ConnectService, private route: ActivatedRoute, private userService: UserService, private router: Router, private noteService: NoteService, private profileService: ProfileService, private titleService: Title, private meta : Meta) { 
     
     this.meta.updateTag({ name: 'description', content: `Visit user account.` });
     this.meta.updateTag({ property: "og:url", content: `${this.location}` });
@@ -65,7 +65,7 @@ export class ProfileComponent implements OnInit {
           // this.router.navigate(["/error/page-not-found"]);
         }
       });
-      this.chatService.readPublicChat(routeParams.username).subscribe(res => {
+      this.noteService.readPublicNote(routeParams.username).subscribe(res => {
         if (res) {
           // console.log("res", res);
           this.publicChat = res.data;

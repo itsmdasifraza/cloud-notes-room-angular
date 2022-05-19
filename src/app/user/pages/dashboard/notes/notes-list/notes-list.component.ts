@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ChatService } from 'src/app/user/services/chat/chat.service';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
+import { NoteService } from 'src/app/user/services/note/note.service';
 import { UserService } from 'src/app/user/services/user/user.service';
 
 @Component({
@@ -21,7 +21,7 @@ export class NotesListComponent implements OnInit {
   private refreshSubscription : Subscription;
   chatToggle = true;
   searchText: string;
-  constructor(private connectService: ConnectService,private userService: UserService, private chatService: ChatService, private router: Router) {
+  constructor(private connectService: ConnectService,private userService: UserService, private noteService: NoteService, private router: Router) {
 
     this.refreshSubscription = this.connectService.chatRefresh.subscribe(res => {
         if(res){
@@ -39,7 +39,7 @@ export class NotesListComponent implements OnInit {
 
   ngOnInit(): void {
     // subscribe to home component messages
-    this.chatSubscription = this.chatService.readChat().subscribe(res => {
+    this.chatSubscription = this.noteService.readAllNote().subscribe(res => {
       if (res && res.data.length > 0) {
         // console.log("res",res);
         let list = res.data;

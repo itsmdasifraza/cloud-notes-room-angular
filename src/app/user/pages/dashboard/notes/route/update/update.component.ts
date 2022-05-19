@@ -3,8 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ChatService } from 'src/app/user/services/chat/chat.service';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
+import { NoteService } from 'src/app/user/services/note/note.service';
 import { UserService } from 'src/app/user/services/user/user.service';
 import { environment } from 'src/environments/environment';
 
@@ -23,7 +23,7 @@ export class UpdateComponent implements OnInit {
   ownerusername;
   location = window.location.href;
   app : { name : string } = environment.app;
-  constructor(private route: ActivatedRoute, private connectService: ConnectService, private userService: UserService, private chatService: ChatService, private router: Router, private titleService: Title, private meta: Meta) {
+  constructor(private route: ActivatedRoute, private connectService: ConnectService, private userService: UserService, private noteService: NoteService, private router: Router, private titleService: Title, private meta: Meta) {
     this.connectService.chatToggle.next(false);
     this.titleService.setTitle(`Update Notes | ${this.app.name}`);
     this.meta.updateTag({ name: 'description', content: `Edit existing chat.` });
@@ -35,13 +35,14 @@ export class UpdateComponent implements OnInit {
   chatid;
   username;
 
-  chatForm = new FormGroup({
+  noteForm = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(2)]),
-    description: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    description: new FormControl(''),
     privacy: new FormControl('', [Validators.required]),
   });
   userSubscription: Subscription;
   user;
+  note;
   ngOnInit(): void {
     this.userSubscription = this.connectService.userRefresh.subscribe(res => {
       if (res) {
@@ -63,13 +64,14 @@ export class UpdateComponent implements OnInit {
       this.chatid = routeParams.chatid;
       // this.username = routeParams.username;
 
-      this.chatService.readSingleChat(routeParams.chatid).subscribe(res => {
+      this.noteService.readSingleNote(routeParams.slug).subscribe(res => {
         if (res) {
-          // console.log("res",res);   
-          this.chatForm.setValue({
-            title: res.data.title,
-            description: res.data.description,
-            privacy: res.data.privacy
+          // console.log("res",res);
+          this.note = res.data;   
+          this.noteForm.setValue({
+            title: this.note.title,
+            description: this.note.description,
+            privacy: this.note.privacy
           });
         }
       }, err => {
@@ -97,31 +99,31 @@ export class UpdateComponent implements OnInit {
   error = false;
   spinner: boolean = false;
 
-  editChat() {
-    if (this.chatForm.valid) {
+  editNote() {
+    if (this.noteForm.valid) {
       this.spinner = true;
       this.error = false;
       // console.log(this.chatForm.value);
-      let chat = {
-        "title": this.chatForm.value.title,
-        "description": this.chatForm.value.description,
-        "privacy": this.chatForm.value.privacy
+      let note = {
+        "title": this.noteForm.value.title,
+        "description": this.noteForm.value.description,
+        "privacy": this.noteForm.value.privacy
       }
 
-      this.chatService.editChat(chat, this.chatid).subscribe(
+      this.noteService.editNote(note, this.note._id).subscribe(
         (res) => {
           // console.log("res",res);
           this.chats.forEach((element , index )=> {
             if (element._id == this.chatid) {
-            element.title =  this.chatForm.value.title;
-              element.description = this.chatForm.value.description;
-              element.privacy = this.chatForm.value.privacy;
+            element.title =  this.noteForm.value.title;
+              element.description = this.noteForm.value.description;
+              element.privacy = this.noteForm.value.privacy;
             }
           });
           this.connectService.chatRefresh.next(this.chats);
           this.spinner = false;
-          this.chatForm.reset();
-          this.router.navigate([`/${this.username}/${this.chatid}`]);
+          this.noteForm.reset();
+          this.router.navigate([`/${this.username}/${res.data}`]);
 
         }, (err) => {
           // console.log("err",err);

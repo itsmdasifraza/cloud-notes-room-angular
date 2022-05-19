@@ -2,46 +2,67 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class NoteService {
+
   backendIp = environment.backend.ip;
   connection = environment.backend.connection;
 
-
-  private ROOT_URL = `${this.connection}://${this.backendIp}/api/chat/create`;
-  private readNoteApi = `${this.connection}://${this.backendIp}/api/note/read`;
-  private deleteNoteApi = `${this.connection}://${this.backendIp}/api/note/delete`;
-  private createNoteApi = `${this.connection}://${this.backendIp}/api/note/create`;
+  private createNoteApi =  `${this.connection}://${this.backendIp}/api/note/create`;
+  private readNoteApi =  `${this.connection}://${this.backendIp}/api/note/read`;
+  private readPublicNoteApi =  `${this.connection}://${this.backendIp}/api/note/read/public`;
+  private deleteNoteApi =  `${this.connection}://${this.backendIp}/api/note/delete`;
+  private editNoteApi =  `${this.connection}://${this.backendIp}/api/note/edit`;
 
   constructor(private http: HttpClient) { }
 
-
-  
-    
-
-  deleteNote(chatid,noteid) {
-    let header= new HttpHeaders({
-      // "Content-Type":"application/json",
-      "token":localStorage.getItem("user-token")
-    });
-    return this.http.get<any>(`${this.deleteNoteApi}/${chatid}/${noteid}`,{headers:header} );
-  }
-   createNote(chatid,note){
+  createNote(note) {
     let header= new HttpHeaders({
       "Content-Type":"application/json",
       "token":localStorage.getItem("user-token")
     });
-    return this.http.post<any>(`${this.createNoteApi}/${chatid}`,note,{headers:header});
+    return this.http.post<any>(this.createNoteApi, note, {headers:header} );
   }
 
-  readNote(chatid){
+  editNote(note,noteid) {
+    let header= new HttpHeaders({
+      "Content-Type":"application/json",
+      "token":localStorage.getItem("user-token")
+    });
+    return this.http.post<any>(`${this.editNoteApi}/${noteid}`, note,{headers:header} );
+  }
+
+  readAllNote(){
     let header= new HttpHeaders({
       // "Content-Type":"application/json",
       "token":localStorage.getItem("user-token")
     });
-    return this.http.get<any>(`${this.readNoteApi}/${chatid}`,{headers:header});
+    return this.http.get<any>(`${this.readNoteApi}`,{headers:header});
+  }
+
+  readPublicNote(username : string){
+    let header= new HttpHeaders({
+      // "Content-Type":"application/json",
+      "token":localStorage.getItem("user-token")
+    });
+    return this.http.get<any>(`${this.readPublicNoteApi}/${username}`);
+  }
+  
+  readSingleNote(slug : string){
+    let header= new HttpHeaders({
+      // "Content-Type":"application/json",
+      "token":localStorage.getItem("user-token")
+    });
+    return this.http.get<any>(`${this.readNoteApi}/${slug}`,{headers:header});
+  }
+
+  deleteNote(noteid){
+    let header= new HttpHeaders({
+      // "Content-Type":"application/json",
+      "token":localStorage.getItem("user-token")
+    });
+    return this.http.get<any>(`${this.deleteNoteApi}/${noteid}`,{headers:header});
   }
 }

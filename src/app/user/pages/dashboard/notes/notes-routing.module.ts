@@ -12,8 +12,8 @@ const routes: Routes = [
   children:[
     { path: 'all', component : HomeComponent},
     { path: 'create', component : CreateComponent},
-    { path: ':chatid', component : ReadComponent},
-    { path: ':chatid/update', component : UpdateComponent},
+    { path: ':slug', component : ReadComponent},
+    { path: ':slug/update', component : UpdateComponent},
   
   ]},
  

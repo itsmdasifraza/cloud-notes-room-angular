@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div *ngFor="let item of publicChat.slice().reverse()" class="col-xl-4 col-md-6 col-12 pb-md-3 pl-md-3 pr-md-3 p-0">
-                    <div class="item" routerLink="/{{username}}/{{item._id}}">
+                    <div class="item" routerLink="/{{username}}/{{item.slug}}">
                         <div  class="itm-flx">
                             <div>
                                 <div class="circle">

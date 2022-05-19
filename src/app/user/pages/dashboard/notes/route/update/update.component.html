@@ -71,7 +71,7 @@
                         <p>Retype notes title and description to update a notes component.</p>
                     </div>
                     <div class="login">
-                        <form [formGroup]="chatForm" (ngSubmit)="editChat()">
+                        <form [formGroup]="noteForm" (ngSubmit)="editNote()">
                             <div class="error" *ngIf="error">
                                 <p>{{error}}</p>
                             </div>
@@ -106,7 +106,7 @@
                             </div>
                             
                             <div class="form">
-                                <button type="submit" [disabled]="!chatForm.valid" class="d-flex justify-content-center align-items-center">
+                                <button type="submit" [disabled]="!noteForm.valid" class="d-flex justify-content-center align-items-center">
                                     <span class="mr-2">Update Notes</span>
                                     <div class="text-center" *ngIf="spinner==true">
                                       <div class="spinner-border" style="width:16px; height:16px;" role="status">

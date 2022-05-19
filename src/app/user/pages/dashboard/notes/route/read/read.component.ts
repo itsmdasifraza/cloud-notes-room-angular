@@ -4,15 +4,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
-import { NoteService } from 'src/app/user/services/note/note.service';
+
 import { Subscription } from 'rxjs';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
-import { ChatService } from 'src/app/user/services/chat/chat.service';
+
 import { userInfo } from 'os';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
 
 import { ProfileService } from 'src/app/user/services/profile/profile.service';
 import { environment } from 'src/environments/environment';
+import { ListService } from 'src/app/user/services/list/list.service';
+import { NoteService } from 'src/app/user/services/note/note.service';
 @Component({
   selector: 'app-read',
   templateUrl: './read.component.html',
@@ -20,158 +22,106 @@ import { environment } from 'src/environments/environment';
 })
 export class ReadComponent implements OnInit {
 
-  subscription: Subscription;
-  notes = [];
+  noteListSubscription: Subscription;
   months = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
   ];
   chat;
   listItem;
-  location : string = window.location.href;
-  app : { name : string } = environment.app;
-  refreshSubscription : Subscription;
-  constructor(private profileService: ProfileService ,private route: ActivatedRoute, private chatService: ChatService, private noteService: NoteService, private router: Router, private connectService: ConnectService, private titleService: Title, private meta: Meta) {
+  location: string = window.location.href;
+  app: { name: string } = environment.app;
+  refreshSubscription: Subscription;
+  constructor(private profileService: ProfileService, private route: ActivatedRoute, private noteService: NoteService, private listService: ListService, private router: Router, private connectService: ConnectService, private titleService: Title, private meta: Meta) {
     this.titleService.setTitle(`Loading Notes ... | ${this.app.name}`);
     this.meta.updateTag({ name: 'description', content: `Read your notes.` });
     this.meta.updateTag({ property: "og:url", content: `${this.location}` });
   }
 
-  noteForm = new FormGroup({
+  listForm = new FormGroup({
     message: new FormControl('', [Validators.required, Validators.minLength(1)]),
   });
   chatList;
-  chatid;
-  owner;
+  slug;
   username;
   avatar;
   own = true;
+
+
+  note: { description: string, privacy: string, slug: string, timestamp: string, title: string, userid: string, __v: number, _id: string };
+  list;
+  noteOwner: boolean;
+
   ngOnInit(): void {
     this.connectService.chatToggle.next(false);
     this.refreshSubscription = this.connectService.chatRefresh.subscribe(res => {
-      if(res){
-        if(res.length > 0){
+      if (res) {
+        if (res.length > 0) {
           this.chatList = res;
-          // console.log(this.chatList);
         }
       }
-  });
-
-    this.route.queryParams.subscribe(queryParams => {
-      // do something with the query params
     });
+
+
     this.route.parent.params.subscribe(routeParams => {
       this.username = routeParams.username;
     });
     this.route.params.subscribe(routeParams => {
-      // console.log(routeParams.chatid);
-      this.chatid = routeParams.chatid;
-      
-      // console.log(this.username, this.chatid);
-      this.notes = undefined;
-     
-
-
-      this.subscription = this.chatService.readSingleChat(routeParams.chatid).subscribe(res => {
-        if (res) {
-          // console.log("res",res);   
-          this.owner = res.owner;
-          this.chat = res.data;
-          this.chat.stamp.month = this.months[this.chat.stamp.month];
-          this.titleService.setTitle(`${res.data.title} | ${this.app.name}`);
-          this.subscription = this.noteService.readNote(routeParams.chatid).subscribe(res => {
-            if (res) {
-              // console.log("res",res);
-              
-              this.notes = res.data;
-            }
-          }, err => {
-            if (err) {
-              // console.log("err", err);
-            }
-          });
-          // console.log(this.chat);
-          if(this.owner == "false"){
-            this.own = false;
-            this.profileService.readProfile(this.username).subscribe(res => {
-              if (res) {
-                // console.log("res",res);
-                this.avatar = res.data.avatar;
-              }
-            }, err => {
-              if (err) {
-                // console.log("err", err);
-              }
-            });
-          }
-          else{
-            this.own = true;
-          }
-        }
-      }, err => {
-        if (err) {
-          // console.log("err", err);
-          this.router.navigate(['/notes/all']);
-        }
-      });
-
+      this.slug = routeParams.slug;
+      this.note = undefined;
+      this.list = undefined;
+      this.readNoteList(this.username, this.slug);
     });
   }
 
 
-
-  createNote() {
-
-    if (this.noteForm.valid) {
-      let note = {
-        "message": this.noteForm.value.message
+  readNoteList(username: string, slug: string) {
+    this.noteListSubscription = this.listService.readNoteList(username, slug).subscribe(res => {
+      if (res) {
+        this.note = res.data;
+        this.list = res.data2;
+        this.noteOwner = res.owner;
+        this.titleService.setTitle(`${this.note.title} | ${this.app.name}`);
       }
+    }, err => { if (err) { } });
+  }
 
-      this.noteService.createNote(this.chatid, note).subscribe(
+
+  createList() {
+    if (this.listForm.valid) {
+      let list = {
+        "message": this.listForm.value.message
+      }
+      this.listService.createList(this.note._id, list).subscribe(
         (res) => {
-          // console.log("res", res);
           let info = res.info;
-
-          if (!this.notes) {
-            this.notes = [info];
-          }
-          else {
-            this.notes.push(info);
-          }
-          this.noteForm.reset();
-
-        }, (err) => {
-          // console.log("err",err);
-        });
+          this.list.push(info);
+          this.listForm.reset();
+        }, (err) => { });
     }
   }
 
 
-  deleteNote(noteid) {
-    this.noteService.deleteNote(this.chatid, noteid).subscribe((res) => {
+  deleteList(listid) {
+    this.listService.deleteList(this.note._id, listid).subscribe((res) => {
       if (res) {
-        // console.log("res",res);
         let info = res.info;
-        this.notes.forEach((element, index) => {
-          // console.log(element,index)
-          if (element._id == info._id && element.userid == info.userid && element.chatid == info.chatid) {
-            this.notes.splice(index, 1);
+        this.list.forEach((element, index) => {
+          if (element._id == info._id) {
+            this.list.splice(index, 1);
           }
         });
       }
-    }, (err) => {
-      if (err) {
-        // console.log("err",err);
-      }
-    });
+    }, (err) => { });
   }
 
-  deleteChat() {
-    this.chatService.deleteChat(this.chatid).subscribe((res) => {
+
+
+  deleteNote() {
+    this.noteService.deleteNote(this.note._id).subscribe((res) => {
       if (res) {
-        // console.log("res",res);
         let delChat = res.info;
-        this.chatList.forEach((element , index )=> {
-          if (element._id == delChat._id && element.userid == delChat.userid) {
+        this.chatList.forEach((element, index) => {
+          if (element._id == delChat._id) {
             this.chatList.splice(index, 1);
           }
         });
@@ -179,13 +129,12 @@ export class ReadComponent implements OnInit {
         this.router.navigate(["/notes/all"]);
       }
     }, (err) => {
-      if (err) {
-        // console.log("err",err);
-      }
+      if (err) { }
     });
   }
-  editChat(){
-    this.router.navigate([`/notes/${this.chatid}/update`]);
+
+  editNote() {
+    this.router.navigate([`/notes/${this.note.slug}/update`]);
   }
 
   visible() {
@@ -196,6 +145,7 @@ export class ReadComponent implements OnInit {
 
   ngOnDestroy() {
     this.connectService.chatToggle.next(true);
-    this.subscription.unsubscribe();
+    this.noteListSubscription.unsubscribe();
+    this.refreshSubscription.unsubscribe();
   }
 }

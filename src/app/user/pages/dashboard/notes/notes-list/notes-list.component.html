@@ -7,7 +7,7 @@
      <div *ngIf="list  && list.length > 0" >
          <div *ngFor="let item of list.slice().reverse() | filter:searchText">
  
-             <div class="item" [ngStyle]="{'border-left':item.privacy == 'private' ? '4px solid rgb(236, 99, 99)' : '4px solid #1fce6d'}" routerLink="/{{username}}/{{item._id}}" routerLinkActive="active-link"  >
+             <div class="item" [ngStyle]="{'border-left':item.privacy == 'private' ? '4px solid rgb(236, 99, 99)' : '4px solid #1fce6d'}" routerLink="/{{username}}/{{item.slug}}" routerLinkActive="active-link"  >
                  <div  class="itm-flx">
                      <div>
                          <div class="circle">

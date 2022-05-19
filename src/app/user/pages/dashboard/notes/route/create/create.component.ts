@@ -4,11 +4,11 @@ import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
-import { ChatService } from 'src/app/user/services/chat/chat.service';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/user/services/user/user.service';
 import { environment } from 'src/environments/environment';
+import { NoteService } from 'src/app/user/services/note/note.service';
 
 @Component({
   selector: 'app-create',
@@ -24,7 +24,7 @@ owneruser;
 ownerusername;
 location : string = window.location.href;
 app : { name : string } = environment.app;
-  constructor(private connectService: ConnectService,private userService: UserService, private chatService : ChatService, private router : Router,private titleService:Title, private meta: Meta) {
+  constructor(private connectService: ConnectService,private userService: UserService, private noteService : NoteService, private router : Router,private titleService:Title, private meta: Meta) {
     this.titleService.setTitle(`Create Notes | ${this.app.name}`);
     this.meta.updateTag({ name: 'description', content: `Create new chat.` });
     this.meta.updateTag({ property: "og:url", content: `${this.location}` });
@@ -34,14 +34,14 @@ app : { name : string } = environment.app;
    }
 
 
-  chatForm = new FormGroup({
+  noteForm = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.minLength(2)]),
-    description: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    description: new FormControl(''),
     privacy: new FormControl('', [Validators.required]),
   });
   
   ngOnInit(): void {
-      this.chatForm.setValue({
+      this.noteForm.setValue({
         title : '',
         description:'',
         privacy : "public"
@@ -78,21 +78,21 @@ app : { name : string } = environment.app;
   error = false;
   spinner : boolean = false;
   
-  createChat(){
-    if(this.chatForm.valid){
+  createNote(){
+    if(this.noteForm.valid){
       this.spinner = true;
       this.error = false;
         // console.log(this.chatForm.value);
-        let chat = {
-          "title" : this.chatForm.value.title,
-         "description" : this.chatForm.value.description,
-         "privacy" : this.chatForm.value.privacy
+        let note = {
+          "title" : this.noteForm.value.title,
+         "description" : this.noteForm.value.description,
+         "privacy" : this.noteForm.value.privacy
         } 
         
-        this.chatService.createChat(chat).subscribe(
+        this.noteService.createNote(note).subscribe(
           (res)=>{
             // console.log("res",res);
-            let singleChat = res.info;
+            let singleChat = res.data;
             if(this.chats && this.chats.length > 0){
 
               this.chats.push(singleChat)
@@ -102,8 +102,8 @@ app : { name : string } = environment.app;
             }
            this.connectService.chatRefresh.next(this.chats);
             this.spinner = false;
-            this.chatForm.reset();
-            this.router.navigate([`/${this.ownerusername}/${singleChat._id}`]);
+            this.noteForm.reset();
+            this.router.navigate([`/${this.ownerusername}/${res.data.slug}`]);
 
           },(err)=>{
             // console.log("err",err);

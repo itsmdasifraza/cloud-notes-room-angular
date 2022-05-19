@@ -20,7 +20,7 @@
                         <p>Type notes title and description to build a notes component which will further divided into chunks in next step.</p>
                     </div>
                     <div class="login">
-                        <form [formGroup]="chatForm" (ngSubmit)="createChat()">
+                        <form [formGroup]="noteForm" (ngSubmit)="createNote()">
                             <div class="error" *ngIf="error">
                                 <p>{{error}}</p>
                             </div>
@@ -55,7 +55,7 @@
                             </div>
                             
                             <div class="form">
-                                <button type="submit" [disabled]="!chatForm.valid" class="d-flex justify-content-center align-items-center">
+                                <button type="submit" [disabled]="!noteForm.valid" class="d-flex justify-content-center align-items-center">
                                     <span class="mr-2">Create Notes</span>
                                     <div class="text-center" *ngIf="spinner==true">
                                       <div class="spinner-border" style="width:16px; height:16px;" role="status">
