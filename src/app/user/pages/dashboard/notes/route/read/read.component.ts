@@ -44,12 +44,12 @@ export class ReadComponent implements OnInit {
   slug;
   username;
   avatar;
-  own = true;
+  // own = true;
 
 
   note: { description: string, privacy: string, slug: string, timestamp: string, title: string, userid: string, __v: number, _id: string };
   list;
-  noteOwner: boolean;
+  noteOwner: boolean = true;
 
   ngOnInit(): void {
     this.connectService.chatToggle.next(false);
@@ -80,9 +80,12 @@ export class ReadComponent implements OnInit {
         this.note = res.data;
         this.list = res.data2;
         this.noteOwner = res.owner;
+        this.avatar = res.avatar;
         this.titleService.setTitle(`${this.note.title} | ${this.app.name}`);
       }
-    }, err => { if (err) { } });
+    }, err => { if (err) { 
+      this.router.navigate(["/notes/all"]);
+    } });
   }
 
 
@@ -137,11 +140,11 @@ export class ReadComponent implements OnInit {
     this.router.navigate([`/notes/${this.note.slug}/update`]);
   }
 
-  visible() {
-    return {
-      'side-hide': !this.own,
-    }
-  }
+  // visible() {
+  //   return {
+  //     'side-hide': !this.own,
+  //   }
+  // }
 
   ngOnDestroy() {
     this.connectService.chatToggle.next(true);

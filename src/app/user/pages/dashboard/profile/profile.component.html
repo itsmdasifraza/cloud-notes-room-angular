@@ -7,7 +7,7 @@
                     <app-user-header [user]="owneruser" *ngIf="owneruser"></app-user-header>
                     <div class="searchbox">
                         <form [formGroup]="searchForm" (ngSubmit)="searchUser()">
-                            <input type="text" name="search" autocomplete="off" formControlName="search"
+                            <input type="text" name="search" autocomplete="off" autocapitalize="none" formControlName="search"
                                 placeholder="search username">
                         </form>
                     </div>
@@ -19,7 +19,7 @@
                             </div>
                             <br>
                             <h4 *ngIf="userData" style=" overflow: hidden;
-                            word-wrap: break-word; " class="user-name text-center"><b>@{{userData.username}}</b></h4>
+                            word-wrap: break-word; " class="user-name text-center"><b>{{userData.username}}</b></h4>
                         </div>
                     </div>
 
@@ -34,7 +34,7 @@
                 <div class="d-lg-none">
                     <div class="searchbox">
                         <form [formGroup]="searchForm" (ngSubmit)="searchUser()">
-                            <input type="text" name="search" autocomplete="off" formControlName="search"
+                            <input type="text" name="search" autocomplete="off" autocapitalize="none" formControlName="search"
                                 placeholder="search username">
                         </form>
                     </div>
@@ -50,7 +50,7 @@
                                 -webkit-line-clamp: 1;
                                 display: -webkit-box;
                               -webkit-box-orient: vertical;
-                              word-wrap: break-word; cursor:pointer; " class="m-0">@{{userData.username}}</h6>
+                              word-wrap: break-word; cursor:pointer; " class="m-0">{{userData.username}}</h6>
 
                         </div>
                         <div style=" overflow-x:hidden; " class="pro-circle">
@@ -95,7 +95,7 @@
                                             <div class="form-group">
                                                 <label for="fullName"><b>NAME</b></label>
                                                 <p *ngIf="userData && userData.name != ''">{{userData.name}}</p>
-                                                <p *ngIf="userData && userData.name == ''">@{{userData.username}}</p>
+                                                <p *ngIf="userData && userData.name == ''">{{userData.username}}</p>
 
                                             </div>
                                         </div>
@@ -103,7 +103,7 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-group">
                                                 <label for="fullName"><b>USERNAME</b></label>
-                                                <p *ngIf="userData">@{{userData.username}}</p>
+                                                <p *ngIf="userData">{{userData.username}}</p>
 
                                             </div>
                                         </div>

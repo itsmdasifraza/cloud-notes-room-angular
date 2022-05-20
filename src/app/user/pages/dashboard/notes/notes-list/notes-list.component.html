@@ -2,7 +2,7 @@
     <app-top-header [username]="username" ></app-top-header>
      <app-user-header [user]="user" *ngIf="user"></app-user-header>
      <div class="searchbox">
-         <input type="text" autocomplete="off"  name="search" [(ngModel)]="searchText" placeholder="search chat">
+         <input type="text" autocomplete="off"  name="search" [(ngModel)]="searchText" placeholder="Search note">
      </div>
      <div *ngIf="list  && list.length > 0" >
          <div *ngFor="let item of list.slice().reverse() | filter:searchText">

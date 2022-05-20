@@ -9,13 +9,19 @@
                 -webkit-line-clamp: 1;
                 display: -webkit-box;
               -webkit-box-orient: vertical;
-              word-wrap: break-word; cursor:pointer; " class="m-0"  routerLink="/{{user.username}}" *ngIf="user">@{{user.username}}</h6>
+              word-wrap: break-word; cursor:pointer; " class="m-0"  routerLink="/{{user.username}}" *ngIf="user">{{user.username}}</h6>
             <h6 style=" overflow: hidden;
             text-overflow: ellipsis;
                 -webkit-line-clamp: 1;
                 display: -webkit-box;
               -webkit-box-orient: vertical;
-              word-wrap: break-word; cursor: pointer; " class="m-0" routerLink="/{{user.username}}" *ngIf="user">{{user.email}}</h6>
+              word-wrap: break-word; cursor: pointer; " class="m-0" routerLink="/{{user.username}}" *ngIf="user && user.verified">Stable account</h6>
+      <h6 style=" overflow: hidden;
+      text-overflow: ellipsis;
+          -webkit-line-clamp: 1;
+          display: -webkit-box;
+        -webkit-box-orient: vertical;
+        word-wrap: break-word; cursor: pointer; " class="m-0" routerLink="/{{user.username}}" *ngIf="user && !user.verified">Guest account</h6>
 
         </div>
         <!-- <h6 *ngIf="user"></h6> -->

@@ -1,53 +1,3 @@
-<!-- <div class="addnotes">
-
-    <div class="chat-box btns ">
-
-        <h6><b>EDIT CHAT</b></h6>
-        <form [formGroup]="chatForm" (ngSubmit)="editChat()">
-            <div class="form">
-           
-                <input type="text" id="topic" autocomplete="off" formControlName="title"
-                    placeholder="chat name">
-                <small class=""
-                    *ngIf="!chatForm.get('title').valid && chatForm.get('title').touched">
-                    must contain minimum 2 character !
-                </small>
-            </div>
-            <div class="form">
-                
-                <input id="desc" autocomplete="off"  formControlName="description"
-                    placeholder="chat description">
-                <small class=""
-                    *ngIf="!chatForm.get('description').valid && chatForm.get('description').touched">
-                    must contain minimum 2 character !
-                </small>
-            </div>
-            <br>
-            <div class="d-flex">
-                <div class="mr-3">
-                    <div class="radio-buttons public">
-                        <input type="radio" name="privacy" id="public" value="public" formControlName="privacy">
-                        <label for="public">Public</label>
-                    </div>
-    
-                </div>
-                
-                <div class="">
-                    <div class="radio-buttons private">
-                        <input type="radio" name="privacy" id="private" value="private" formControlName="privacy">
-                        <label for="private">Private</label>
-                    </div>
-    
-                </div>
-            </div>
-            
-            <div class="form">
-
-                <button type="submit">UPDATE CHAT</button>
-            </div>
-        </form>
-    </div>
-</div> -->
 
 <div style="position: relative;">
     <div class="login-gradient">
@@ -67,8 +17,8 @@
             <div class="login-flex">
                 <div class="outer-login">
                     <div class="intro">
-                        <h1>Update existing notes</h1>
-                        <p>Retype notes title and description to update a notes component.</p>
+                        <h1>Update existing note</h1>
+                        <p>Retype note title and description to update a note component.</p>
                     </div>
                     <div class="login">
                         <form [formGroup]="noteForm" (ngSubmit)="editNote()">
@@ -107,7 +57,7 @@
                             
                             <div class="form">
                                 <button type="submit" [disabled]="!noteForm.valid" class="d-flex justify-content-center align-items-center">
-                                    <span class="mr-2">Update Notes</span>
+                                    <span class="mr-2">Update Note</span>
                                     <div class="text-center" *ngIf="spinner==true">
                                       <div class="spinner-border" style="width:16px; height:16px;" role="status">
                                           <span class="sr-only">Loading...</span>

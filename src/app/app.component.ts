@@ -20,24 +20,22 @@ import { UserService } from './user/services/user/user.service';
 export class AppComponent {
 
   constructor(private connectService: ConnectService, private userService: UserService, private router: Router) { }
-  user;
+  user : {about : string, address : string, avatar : string, college : string, education : string, email : string, name : string, phone : string, timestamp : string, verified : boolean, __v : number, _id : string};
   ngOnInit(): void {
+    let token = localStorage.getItem("user-token");
+    if(token) this.readUser();
+  }
 
+  // Fetches user Details using token => userid
+  readUser(){
     this.userService.readUser().subscribe(res => {
       if (res) {
         this.user = res.info;
-        // console.log(this.user);
         this.connectService.userRefresh.next(this.user);
       }
     }, err => {
-      if (err) {
-        // console.log("err", err);
-        if (err.error.mssg == "access denied - unauthorized") {
-          this.connectService.chatRefresh.next([]);
-          this.connectService.userRefresh.next(null);
+      if (err && err.error.mssg == "access denied - unauthorized") {  
           localStorage.removeItem("user-token");
-          // this.router.navigate(["/"]);
-        }
       }
     });
   }

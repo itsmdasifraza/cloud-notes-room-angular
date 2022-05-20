@@ -16,8 +16,8 @@
             <div class="login-flex">
                 <div class="outer-login">
                     <div class="intro">
-                        <h1>Create new notes</h1>
-                        <p>Type notes title and description to build a notes component which will further divided into chunks in next step.</p>
+                        <h1>Create new note</h1>
+                        <p>Type note title and description to build a note component which will further divided into chunks in next step.</p>
                     </div>
                     <div class="login">
                         <form [formGroup]="noteForm" (ngSubmit)="createNote()">
@@ -56,7 +56,7 @@
                             
                             <div class="form">
                                 <button type="submit" [disabled]="!noteForm.valid" class="d-flex justify-content-center align-items-center">
-                                    <span class="mr-2">Create Notes</span>
+                                    <span class="mr-2">Create Note</span>
                                     <div class="text-center" *ngIf="spinner==true">
                                       <div class="spinner-border" style="width:16px; height:16px;" role="status">
                                           <span class="sr-only">Loading...</span>

@@ -16,7 +16,7 @@ export class UserService {
    readUser(){
     let header= new HttpHeaders({
       // "Content-Type":"application/json",
-      "token":localStorage.getItem("user-token")
+      "token": localStorage.getItem("user-token")
     });
     return this.http.get<any>(`${this.readUserApi}`,{headers:header});
   }

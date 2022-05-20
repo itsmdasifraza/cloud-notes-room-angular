@@ -70,9 +70,9 @@
         </div>
     </div>
     <div *ngIf="list" class="notes">
-        <div class="data" *ngFor="let item of list; let i = index">
+        <div class="data " *ngFor="let item of list; let i = index">
 
-            <p class="m-0" style="overflow: hidden; word-wrap: break-word;">{{item.message}}</p>
+            <p class="m-0 " style="overflow: hidden; word-wrap: break-word;">{{item.message}}</p>
             <div >
 
                 <button *ngIf="noteOwner" (click)="deleteList(item._id)"> <svg width="100%" height="100%" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -89,5 +89,8 @@
             <button type="submit">Next</button>
         </div>
     </form>
+    <div *ngIf="!noteOwner">
+        <p class="text-white text-center pb-0 pt-1" >Permission denied to make any changes.</p>
+    </div>
 </div>
 </div>
