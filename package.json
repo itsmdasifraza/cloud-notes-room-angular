@@ -1,10 +1,10 @@
 {
-  "name": "cloud-notes-room-angular",
+  "name": "notegram-angular-client",
   "version": "v3.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --dist",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
