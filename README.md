@@ -1,14 +1,20 @@
-### Zexagram Angular Client
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
+### Notegram Angular Client
+It is a social media application where different users across the world joins the platform and build, push, and maintain their notes.
+
+### Requirement
+Angular CLI: 14.2.10
+Node: 16.13.2
+Package Manager: npm 8.1.2
+OS: win32 x64
 
 ### Backend Repository
-Checkout [https://github.com/itsmdasifraza/cloud-notes-room-nodejs-api](https://github.com/itsmdasifraza/cloud-notes-room-nodejs-api) for further code.
+Checkout [https://github.com/itsmdasifraza/notegram-express-server](https://github.com/itsmdasifraza/notegram-express-server) for further code.
 
 ### Deployed Application 
-Checkout [https://cloudnotesroom.web.app/](https://cloudnotesroom.web.app/) to view application in production. 
+Checkout [https://notegram.netlify.app/](https://notegram.netlify.app/) to view application in production. 
 
-### Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Start Development Server
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ### Build Production Files
-Run `ng build --prod` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.

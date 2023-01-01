@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cloud-notes-room-angular": {
+    "notegram-angular-client": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -69,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "cloud-notes-room-angular:build"
+            "browserTarget": "notegram-angular-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "cloud-notes-room-angular:build:production"
+              "browserTarget": "notegram-angular-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cloud-notes-room-angular:build"
+            "browserTarget": "notegram-angular-client:build"
           }
         },
         "test": {
@@ -104,17 +104,17 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "cloud-notes-room-angular:serve"
+            "devServerTarget": "notegram-angular-client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "cloud-notes-room-angular:serve:production"
+              "devServerTarget": "notegram-angular-client:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "cloud-notes-room-angular",
+  "defaultProject": "notegram-angular-client",
   "cli": {
     "analytics": false
   }
