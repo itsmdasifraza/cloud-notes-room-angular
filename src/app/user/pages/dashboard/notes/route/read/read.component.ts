@@ -6,7 +6,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 
 import { Subscription } from 'rxjs';
-import { CompileShallowModuleMetadata } from '@angular/compiler';
+//import { CompileShallowModuleMetadata } from '@angular/compiler';
 
 import { userInfo } from 'os';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
