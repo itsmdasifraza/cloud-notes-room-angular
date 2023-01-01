@@ -1,6 +1,6 @@
 import { Component, OnInit, Output  } from '@angular/core';
 import { EventEmitter } from 'protractor';
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
@@ -34,10 +34,10 @@ app : { name : string } = environment.app;
    }
 
 
-  noteForm = new FormGroup({
-    title: new FormControl('', [Validators.required, Validators.minLength(2)]),
-    description: new FormControl(''),
-    privacy: new FormControl('', [Validators.required]),
+  noteForm = new UntypedFormGroup({
+    title: new UntypedFormControl('', [Validators.required, Validators.minLength(2)]),
+    description: new UntypedFormControl(''),
+    privacy: new UntypedFormControl('', [Validators.required]),
   });
   
   ngOnInit(): void {

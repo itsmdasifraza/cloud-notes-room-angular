@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
 export class UpdateDetailsComponent implements OnInit {
   location = window.location.href;
   app : { name : string } = environment.app;
-  constructor(private connectService : ConnectService ,private route: ActivatedRoute, private fb: FormBuilder, private router: Router, private profileService: ProfileService,private titleService:Title, private meta: Meta) { 
+  constructor(private connectService : ConnectService ,private route: ActivatedRoute, private fb: UntypedFormBuilder, private router: Router, private profileService: ProfileService,private titleService:Title, private meta: Meta) { 
     this.connectService.settingToggle.next(false);
     this.titleService.setTitle(`Details | ${this.app.name}`);
     this.meta.updateTag({ name: 'description', content: `Change user info.` });
@@ -24,12 +24,12 @@ export class UpdateDetailsComponent implements OnInit {
   userData;
 
   changeProfileForm = this.fb.group({
-    name: new FormControl('', []),
-    phone: new FormControl('', []),
-    address: new FormControl('', []),
-    college: new FormControl('', []),
-    education: new FormControl('', []),
-    about: new FormControl('', []),
+    name: new UntypedFormControl('', []),
+    phone: new UntypedFormControl('', []),
+    address: new UntypedFormControl('', []),
+    college: new UntypedFormControl('', []),
+    education: new UntypedFormControl('', []),
+    about: new UntypedFormControl('', []),
   });
   spinner: Boolean = false;
   ngOnInit(): void {

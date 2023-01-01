@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import {Meta, Title} from "@angular/platform-browser";
 import { Router } from '@angular/router';
 import { AuthRegLoginService } from 'src/app/user/services/auth/auth-reg-login.service';
@@ -23,9 +23,9 @@ export class HomeComponent implements OnInit {
     this.meta.updateTag({ property: "og:url", content: `${this.location}` });
    }
 
-  loginForm = new FormGroup({
-    usermail: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
+  loginForm = new UntypedFormGroup({
+    usermail: new UntypedFormControl('', [Validators.required]),
+    password: new UntypedFormControl('', [Validators.required]),
 
   });
 

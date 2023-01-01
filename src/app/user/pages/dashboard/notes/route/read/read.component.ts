@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 
@@ -37,8 +37,8 @@ export class ReadComponent implements OnInit {
     this.meta.updateTag({ property: "og:url", content: `${this.location}` });
   }
 
-  listForm = new FormGroup({
-    message: new FormControl('', [Validators.required, Validators.minLength(1)]),
+  listForm = new UntypedFormGroup({
+    message: new UntypedFormControl('', [Validators.required, Validators.minLength(1)]),
   });
   chatList;
   slug;

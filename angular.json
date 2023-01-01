@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cloud-notes-room-angular",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -114,5 +114,8 @@
         }
       }
     }},
-  "defaultProject": "cloud-notes-room-angular"
+  "defaultProject": "cloud-notes-room-angular",
+  "cli": {
+    "analytics": false
+  }
 }
