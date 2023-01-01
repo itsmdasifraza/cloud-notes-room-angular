@@ -9,7 +9,7 @@ export const environment = {
     ip : "127.0.0.1:3000"
   },
   app : {
-    name : "Cloud Notes Room",
+    name : "Notegram",
   },
   developer : {
     name : "Md Asif Raza",

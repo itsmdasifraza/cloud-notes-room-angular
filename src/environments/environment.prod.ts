@@ -2,10 +2,10 @@ export const environment = {
   production: true,
   backend: {
     connection : "https",
-    ip : "cloud-notes-room.herokuapp.com"
+    ip : "notegram-express-server.vercel.app"
   },
   app : {
-    name : "Cloud Notes Room",
+    name : "Notegram",
   },
   developer : {
     name : "Md Asif Raza",
