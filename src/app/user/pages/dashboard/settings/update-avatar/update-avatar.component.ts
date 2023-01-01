@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
 export class UpdateAvatarComponent implements OnInit {
   location = window.location.href;
   app : { name : string } = environment.app;
-  constructor(private connectService : ConnectService ,private route: ActivatedRoute,private fb: FormBuilder,private router: Router , private profileService : ProfileService , private titleService:Title, private meta: Meta) { 
+  constructor(private connectService : ConnectService ,private route: ActivatedRoute,private fb: UntypedFormBuilder,private router: Router , private profileService : ProfileService , private titleService:Title, private meta: Meta) { 
     this.connectService.settingToggle.next(false);
     this.titleService.setTitle(`Icons | ${this.app.name}`);
     this.meta.updateTag({ name: 'description', content: `Change user icon.` });
@@ -23,7 +23,7 @@ export class UpdateAvatarComponent implements OnInit {
   avatar = ["user0","user1", "user4","user5","user2" , "user6", "user7", "user3","user8", "user9"];
   userData;
   changeAvatarForm = this.fb.group({ 
-    user_icon: new FormControl('', [Validators.required]),
+    user_icon: new UntypedFormControl('', [Validators.required]),
   });
   spinner: Boolean = false;
   ngOnInit(): void {

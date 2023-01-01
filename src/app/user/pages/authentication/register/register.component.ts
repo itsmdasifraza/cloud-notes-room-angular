@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -26,10 +26,10 @@ export class RegisterComponent implements OnInit {
  
    }
 
-  registerForm = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(36) , this.userVal.bind(this)]),
-    email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
-    password: new FormControl('', [Validators.required, Validators.minLength(8), this.userPassVal.bind(this)]),
+  registerForm = new UntypedFormGroup({
+    username: new UntypedFormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(36) , this.userVal.bind(this)]),
+    email: new UntypedFormControl('', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+    password: new UntypedFormControl('', [Validators.required, Validators.minLength(8), this.userPassVal.bind(this)]),
 
   });
 
@@ -68,14 +68,14 @@ export class RegisterComponent implements OnInit {
         });
     }
   }
-  userVal(control:FormControl) {
+  userVal(control:UntypedFormControl) {
     let regUser=/^[a-zA-Z0-9._]+$/;
     if(!regUser.test(control.value)){
       return { 'usernameSyntaxInvalid': true };
     }
     return null;
   }
-  userPassVal(control:FormControl) {
+  userPassVal(control:UntypedFormControl) {
     let regUser=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if(!regUser.test(control.value)){
       return { '[passwordSyntaxInvalid': true };

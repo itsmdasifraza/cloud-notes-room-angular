@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConnectService } from 'src/app/user/services/connect/connect.service';
@@ -30,8 +30,8 @@ export class ProfileComponent implements OnInit {
   ownerusername ;
   error;
 
-  searchForm = new FormGroup({
-    search: new FormControl('', [Validators.required]),
+  searchForm = new UntypedFormGroup({
+    search: new UntypedFormControl('', [Validators.required]),
   });
 
   ngOnInit(): void {

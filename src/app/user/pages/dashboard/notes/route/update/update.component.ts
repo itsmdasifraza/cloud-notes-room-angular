@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -35,10 +35,10 @@ export class UpdateComponent implements OnInit {
   chatid;
   username;
 
-  noteForm = new FormGroup({
-    title: new FormControl('', [Validators.required, Validators.minLength(2)]),
-    description: new FormControl(''),
-    privacy: new FormControl('', [Validators.required]),
+  noteForm = new UntypedFormGroup({
+    title: new UntypedFormControl('', [Validators.required, Validators.minLength(2)]),
+    description: new UntypedFormControl(''),
+    privacy: new UntypedFormControl('', [Validators.required]),
   });
   userSubscription: Subscription;
   user;

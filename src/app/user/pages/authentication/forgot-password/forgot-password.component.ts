@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 import { ForgotPasswordService } from 'src/app/user/services/forgot-password/forgot-password.service';
 import { environment } from 'src/environments/environment';
@@ -21,8 +21,8 @@ export class ForgotPasswordComponent implements OnInit {
     this.meta.updateTag({ property: "og:url", content: `${this.location}` });
   }
 
-  forgotPasswordForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+  forgotPasswordForm = new UntypedFormGroup({
+    email: new UntypedFormControl('', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
 
   });
 
