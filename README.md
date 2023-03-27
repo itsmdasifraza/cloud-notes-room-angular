@@ -1,5 +1,5 @@
 ### Notegram Angular Client
-It is a social media application where different users across the world joins the platform and build, push, and maintain their notes.
+It is a social media application where different users across the world joins the platform and build, push, and maintain their Notes. This project is build using Angular CLI 14.2.10, Node 16.13.2, NPM 8.1.2, OS win32 x64. Checkout [https://github.com/itsmdasifraza/notegram-express-server](https://github.com/itsmdasifraza/notegram-express-server) for Backend express.js code. Checkout [https://notegram.netlify.app/](https://notegram.netlify.app/) to view application in production. Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Home Component
 Basic landing page build using Bootstrap and custom css, including login component.
@@ -26,13 +26,18 @@ Already registered users can directly login to the system from there.
 
 ![login-min](https://user-images.githubusercontent.com/58258334/227976355-7cc0d54b-3a1a-417a-a005-5d6e1e46f08b.png)
 
+# Forgot Password Component
+This component helps you to login without passwords by sending an login link to your email. 
+
+![forgot-min](https://user-images.githubusercontent.com/58258334/228014951-75e4299d-bbda-4e2f-9fcf-89f2e8300238.png)
+
 ## Dasboard Component
 After login, the user redirects to this dashboard component, where your previous notes will be showed on left panel and you will get '+' sign to create new notes, you will get search bar to search specific note, and hamburger button to open sidebar for more options like profile, settings, logout. 
 
 ![dashboard-min](https://user-images.githubusercontent.com/58258334/227977176-ab37a055-706d-4be7-a541-b710d4a7617b.png)
 
 ## Create Note Component
-Here user have to type note title, description, and check private or public button to validate access from unauthorized user.
+Here user have to type note title, description, and check private or public button to validate access from unauthorized user. Private Note will be visible to you only whereas Public Note will be visible to all the users on this platform.
 
 ![create-note-min](https://user-images.githubusercontent.com/58258334/227977239-14ba46f9-ba6d-447f-b500-01d3167c8c65.png)
 
@@ -86,21 +91,20 @@ This component let's you to change your current profile password.
 
 ![change-password-min](https://user-images.githubusercontent.com/58258334/227977877-b4989e5a-9754-49ca-9db8-1962421eb181.png)
 
+## 404 Component
+This componet activates when user tries to access wild route.
 
-### Requirement
-Angular CLI: 14.2.10
-Node: 16.13.2
-Package Manager: npm 8.1.2
-OS: win32 x64
+![404-min](https://user-images.githubusercontent.com/58258334/228015612-7ca2e6ee-09d9-4c36-971c-22a709ac1b33.png)
 
-### Backend Repository
-Checkout [https://github.com/itsmdasifraza/notegram-express-server](https://github.com/itsmdasifraza/notegram-express-server) for further code.
 
-### Deployed Application 
-Checkout [https://notegram.netlify.app/](https://notegram.netlify.app/) to view application in production. 
+<!-- ### Backend Repository
+Checkout [https://github.com/itsmdasifraza/notegram-express-server](https://github.com/itsmdasifraza/notegram-express-server) for further code. -->
 
+<!-- ### Deployed Application 
+Checkout [https://notegram.netlify.app/](https://notegram.netlify.app/) to view application in production.  -->
+<!-- 
 ### Start Development Server
-Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. -->
 
-### Build Production Files
-Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<!-- ### Build Production Files
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. -->
